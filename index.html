@@ -54,14 +54,14 @@ nav a:hover {
  overflow:hidden;
 }
 
-/* IMAGE */
+/* FULL SCREEN IMAGE */
 .hero img {
  width:100%;
- height:95%;
+ height:100%;
  object-fit:cover;
 }
 
-/* DARK WIX OVERLAY (belangrijk voor “cinematic look”) */
+/* DARK WIX OVERLAY */
 .hero::after {
  content:"";
  position:absolute;
@@ -71,15 +71,15 @@ nav a:hover {
  height:100%;
  background:linear-gradient(
   to bottom,
-  rgba(0,0,0,0.2),
-  rgba(0,0,0,0.35)
+  rgba(0,0,0,0.15),
+  rgba(0,0,0,0.4)
  );
 }
 
 /* HERO TEXT */
 .hero-text {
  position:absolute;
- top:28%; /* iets hoger zoals je wilde */
+ top:28%;
  left:75%;
  transform:translate(-50%, -50%);
  text-align:center;
@@ -109,9 +109,6 @@ nav a:hover {
  transform:translateY(0);
 }
 
-/* OVER SECTION (WIX LOWER GLASS PANEL) */
-.over {
- 
 /* OVER SECTION */
 .over {
  position:absolute;
@@ -121,12 +118,14 @@ nav a:hover {
  height:28vh;
 
  display:flex;
+
  background:rgba(11, 31, 92, 0.55);
- backdrop-filter: blur(10px);
+ backdrop-filter: blur(14px);
+
  border-top:1px solid rgba(255,255,255,0.1);
 }
 
-/* LINKS TITEL */
+/* LEFT TITLE */
 .over-left {
  width:30%;
  display:flex;
@@ -135,52 +134,19 @@ nav a:hover {
  padding-left:80px;
 }
 
-/* 🟡 TITEL KLEUR */
+/* 🟡 OVER TITLE */
 .over-left h2 {
  font-family:'Playfair Display', serif;
  font-size:40px;
  color:#f5e6a8;
  margin:0;
-
  transition:0.3s ease;
 }
 
-/* ✨ HOVER EFFECT OP "OVER" */
+/* HOVER TITLE */
 .over-left h2:hover {
- color:#fff3b0;  /* licht geel hover */
- transform:translateX(5px);
-}
-
-/* RECHTS TEKST */
-.over-right {
- width:70%;
- display:flex;
- flex-direction:column;
- justify-content:center;
- padding-right:80px;
-}
-
-.over-right p {
- line-height:1.9;
- max-width:650px;
-}
-
-/* 🟡 HOVER EFFECT OP TEKST */
-.over-right p:hover {
  color:#fff3b0;
- transition:0.3s ease;
-}
-
- display:flex;
- background:rgba(11, 31, 92, 0.55);
- backdrop-filter: blur(10px);
-
- border-top:1px solid rgba(255,255,255,0.1);
-}
-
-/* LEFT EMPTY SPACE (WIX BALANCE DESIGN) */
-.over-left {
- width:30%;
+ transform:translateX(5px);
 }
 
 /* RIGHT TEXT */
@@ -189,19 +155,18 @@ nav a:hover {
  display:flex;
  flex-direction:column;
  justify-content:center;
- padding:70px 80px;
-}
-
-.over-right h2 {
- font-family:'Playfair Display', serif;
- font-size:40px;
- margin-bottom:15px;
+ padding:70px 80px 40px 0; /* 🔥 extra ruimte onderaan */
 }
 
 .over-right p {
  line-height:1.9;
  max-width:650px;
- opacity:0.95;
+ transition:0.3s ease;
+}
+
+/* HOVER TEXT */
+.over-right p:hover {
+ color:#fff3b0;
 }
 
 /* FADE IN */
@@ -225,6 +190,8 @@ nav a:hover {
 
 .hero-text {
  top:40%;
+ left:50%;
+ transform:translate(-50%, -50%);
 }
 
 .over {
@@ -274,7 +241,7 @@ nav {
 <p id="subtext">Portretfotografie die jouw innerlijke schoonheid vastlegt</p>
 </div>
 
-<!-- OVER PANEL -->
+<!-- OVER -->
 <section class="over fade">
 
 <div class="over-left">
@@ -289,7 +256,7 @@ Maar mijn fotografie draait om meer dan dat. Ik leg gevoel, licht en sfeer vast.
 
 <br><br>
 
-Niet alleen een moment of blik, maar het gevoel en de persoonlijkheid die iemand laat zien. Ik heb oog voor de mens en dát maakt elk portret persoonlijk en eigen. Ik zie innerlijke schoonheid en maak zichtbaar op een oprechte en eigen manier.
+Niet alleen een moment of blik, maar het gevoel en de persoonlijkheid die iemand laat zien. Ik heb oog voor de mens en dát maakt elk portret persoonlijk en eigen.
 
 <br><br>
 
@@ -300,11 +267,12 @@ Als portretfotograaf nodig ik je uit om jezelf op dezelfde manier te zien.
 
 </section>
 
+</section>
 
 <!-- SCRIPT -->
 <script>
 
-/* SUBTEXT DELAY (3 sec + blur fade) */
+/* SUBTEXT DELAY */
 window.addEventListener("load", function(){
  setTimeout(() => {
   document.getElementById("subtext").classList.add("show");
