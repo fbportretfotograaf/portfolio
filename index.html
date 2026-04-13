@@ -2,13 +2,13 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Fleur Bakker PortretFotografie</title>
+<title>Fleur Bakker Fotografie</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
-/* BASIS */
+/* BASE */
 body {
  margin:0;
  font-family:'Inter', sans-serif;
@@ -17,7 +17,7 @@ body {
  overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* NAV GLASS */
 nav {
  display:flex;
  justify-content:space-between;
@@ -25,15 +25,12 @@ nav {
  padding:20px 80px;
  position:fixed;
  width:100%;
- box-sizing:border-box;
  z-index:1000;
- background:rgba(0,0,0,0.3);
- backdrop-filter: blur(12px);
- transition:0.3s;
-}
+ box-sizing:border-box;
 
-nav.scrolled {
- background:rgba(0,0,0,0.8);
+ background:rgba(0,0,0,0.25);
+ backdrop-filter: blur(14px);
+ border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 nav a {
@@ -53,62 +50,110 @@ nav a:hover {
 .hero {
  position:relative;
  height:100vh;
+ width:100%;
  overflow:hidden;
 }
 
+/* IMAGE */
 .hero img {
  width:100%;
  height:100%;
  object-fit:cover;
- filter:brightness(0.9);
 }
 
-/* HERO TEXT (rechts positie*/
+/* 🔥 DARK WIX OVERLAY (belangrijk voor “cinematic look”) */
+.hero::after {
+ content:"";
+ position:absolute;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ background:linear-gradient(
+  to bottom,
+  rgba(0,0,0,0.2),
+  rgba(0,0,0,0.35)
+ );
+}
+
+/* HERO TEXT */
 .hero-text {
  position:absolute;
- top:40%;
- left:80%;
+ top:32%; /* iets hoger zoals je wilde */
+ left:50%;
  transform:translate(-50%, -50%);
  text-align:center;
- max-width:300px;
+ z-index:2;
 }
 
 .hero-text h1 {
  font-family:'Playfair Display', serif;
- font-size:60px;
+ font-size:70px;
  margin:0;
 }
 
+/* SUBTEXT ANIMATIE */
 .hero-text p {
  font-size:18px;
- opacity:0.85;
+ margin-top:10px;
+
+ opacity:0;
+ filter:blur(10px);
+ transform:translateY(10px);
+ transition:1.4s ease;
 }
 
-/* BLAUWE BALK */
+.hero-text p.show {
+ opacity:1;
+ filter:blur(0);
+ transform:translateY(0);
+}
+
+/* 🔥 OVER SECTION (WIX LOWER GLASS PANEL) */
 .over {
- margin-top:-100px;
- background:rgba(11, 31, 92, 0.6);
- padding:100px 80px;
- backdrop-filter: blur(10px);
- position:relative;
- z-index:2;
+ position:absolute;
+ bottom:0;
+ left:0;
+ width:100%;
+ height:40vh;
+
+ display:flex;
+ background:rgba(11, 31, 92, 0.55);
+ backdrop-filter: blur(14px);
+
+ border-top:1px solid rgba(255,255,255,0.1);
 }
 
-.over h2 {
+/* LEFT EMPTY SPACE (WIX BALANCE DESIGN) */
+.over-left {
+ width:40%;
+}
+
+/* RIGHT TEXT */
+.over-right {
+ width:60%;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ padding:70px 80px;
+}
+
+.over-right h2 {
  font-family:'Playfair Display', serif;
  font-size:40px;
- margin-bottom:20px;
+ margin-bottom:15px;
 }
 
-.over p {
+.over-right p {
  line-height:1.9;
- max-width:800px;
+ max-width:650px;
+ opacity:0.95;
 }
 
 /* FADE IN */
 .fade {
  opacity:0;
- transform:translateY(60px);
+ transform:translateY(40px);
  transition:1.2s ease;
 }
 
@@ -117,36 +162,30 @@ nav a:hover {
  transform:translateY(0);
 }
 
-/* HOVER ZOOM */
-.zoom {
- overflow:hidden;
-}
-
-.zoom img {
- transition: transform 0.8s ease;
-}
-
-.zoom:hover img {
- transform:scale(1.05);
-}
-
-/* MOBIEL */
+/* MOBILE */
 @media (max-width:900px){
 
-.hero-text {
- top:50%;
- left:50%;
- transform:translate(-50%, -50%);
- text-align:center;
+.hero-text h1 {
+ font-size:40px;
 }
 
-.hero-text h1 {
- font-size:32px;
+.hero-text {
+ top:40%;
 }
 
 .over {
- padding:60px 30px;
- margin-top:-50px;
+ flex-direction:column;
+ height:auto;
+ position:relative;
+}
+
+.over-left {
+ display:none;
+}
+
+.over-right {
+ width:100%;
+ padding:40px;
 }
 
 nav {
@@ -161,7 +200,7 @@ nav {
 <body>
 
 <!-- NAV -->
-<nav id="nav">
+<nav>
 <div>FBF</div>
 <div>
 <a href="index.html">Home</a>
@@ -172,49 +211,47 @@ nav {
 </nav>
 
 <!-- HERO -->
-<section class="hero zoom fade">
-<img src="hero.jpg" alt="Hero afbeelding">
+<section class="hero">
+
+<img src="hero.jpg">
+
 <div class="hero-text">
 <h1>Fleur Bakker</h1>
-<p>Fotografie met oog voor licht en gevoel</p>
+<p id="subtext">Fotografie met oog voor licht en gevoel</p>
 </div>
-</section>
 
-<!-- OVER -->
+<!-- OVER PANEL -->
 <section class="over fade">
+
+<div class="over-left"></div>
+
+<div class="over-right">
 <h2>Over</h2>
 
-<h3>Conceptuele thema en portretfotografie met oog voor mens, sfeer en schoonheid</h3>
 <p>
-Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien. 
-Maar mijn fotografie draait om meer dan dat. Ik leg de schoonheid vast die mij raakt 
-in een detail, een blik of een omgeving waarin alles samenkomt.
+Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien.  
+Maar mijn fotografie draait om meer dan dat. Ik leg emoties, licht en sfeer vast in pure vorm.
 
 <br><br>
 
-Licht, compositie en gevoel spelen daarin een grote rol. De details zijn onderdeel 
-van het grotere geheel, het hele plaatje. Mijn fotografie laat zien hoe licht en 
-sfeer een moment kunnen versterken.
-
-<br><br>
-
-Die schoonheid vang ik niet alleen in de juiste hoek of het mooiste licht, maar ook 
-in een blik, houding of oprechte glimlach.
-
-<br><br>
-
-Ik kijk door een positieve lens naar de mens en de wereld om mij heen en nodig je 
-uit om hetzelfde te doen.
+Mijn werk combineert compositie, gevoel en storytelling.  
+Ik kijk door een rustige, positieve lens naar de wereld.
 </p>
+
+</div>
 
 </section>
 
-<!-- SCRIPTS -->
+</section>
+
+<!-- SCRIPT -->
 <script>
 
-/* NAV SCROLL EFFECT */
-window.addEventListener("scroll", function() {
- document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 50);
+/* SUBTEXT DELAY (3 sec + blur fade) */
+window.addEventListener("load", function(){
+ setTimeout(() => {
+  document.getElementById("subtext").classList.add("show");
+ }, 3000);
 });
 
 /* FADE IN */
