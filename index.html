@@ -58,13 +58,13 @@ nav a:hover {
  height:100%;
  object-fit:cover;
  filter:brightness(0.7);
-}
-
-/* HERO TEXT OVER IMAGE */
 .hero-text {
  position:absolute;
- bottom:80px;
- left:80px;
+ top:40%;
+ left:80%;
+ transform:translate(-50%, -50%);
+ text-align:center;
+ width:100%;
 }
 
 .hero-text h1 {
@@ -81,10 +81,9 @@ nav a:hover {
 /* OVERLAP SECTION (WIX STYLE) */
 .over {
  margin-top:-100px;
- background:#0b1f5c;
+ background:rgba(11, 31, 92, 0.6);
  padding:100px 80px;
- position:relative;
- z-index:2;
+ backdrop-filter: blur(10px);
 }
 
 .over h2 {
@@ -141,7 +140,17 @@ nav a:hover {
 }
 
 nav {
- padding:20px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:20px 50px;
+ position:fixed;
+ width:100%;
+ box-sizing:border-box; 
+ z-index:1000;
+ background:rgba(0,0,0,0.3);
+ backdrop-filter: blur(12px);
+}
 }
 
 }
