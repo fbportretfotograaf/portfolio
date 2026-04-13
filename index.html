@@ -1,83 +1,136 @@
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-<meta charset="UTF-8">
-<title>Fleur Bakker Fotografie</title>
-
 <style>
-body { margin:0; font-family:Arial; background:black; color:white; }
 
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap');
+
+body {
+ margin:0;
+ font-family:'Inter', sans-serif;
+ background:black;
+ color:white;
+ overflow-x:hidden;
+}
+
+/* NAV */
 nav {
- display:flex; justify-content:space-between;
- padding:20px; position:fixed; width:100%;
- background:rgba(0,0,0,0.8);
+ display:flex;
+ justify-content:space-between;
+ padding:20px 40px;
+ position:fixed;
+ width:100%;
+ z-index:1000;
+ background:rgba(0,0,0,0.4);
+ backdrop-filter: blur(10px);
+ border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-nav a { color:white; margin-left:20px; text-decoration:none; }
+nav a {
+ color:white;
+ margin-left:25px;
+ text-decoration:none;
+ font-size:14px;
+ letter-spacing:1px;
+}
 
+nav a:hover {
+ opacity:0.7;
+}
+
+/* HERO */
 .hero {
-    display: flex;
-    height: 80vh;
+ display:flex;
+ min-height:80vh;
 }
 
-.hero img { width:50%; object-fit:cover; }
+.hero img {
+ width:50%;
+ object-fit:cover;
+}
 
 .hero-text {
- width:50%; display:flex; flex-direction:column;
- justify-content:center; padding:50px;
+ width:50%;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ padding:80px;
 }
 
-.rood { color:red; }
+.hero-text h1 {
+ font-family:'Playfair Display', serif;
+ font-size:48px;
+ font-weight:500;
+ margin-bottom:20px;
+}
 
-.over { background:#0b1f5c; padding:50px; }
+.hero-text p {
+ font-size:16px;
+ opacity:0.8;
+}
+
+/* OVER */
+.over {
+ background:#0b1f5c;
+ padding:100px 80px;
+}
+
+.over h2 {
+ font-family:'Playfair Display', serif;
+ font-size:36px;
+ margin-bottom:20px;
+}
+
+.over h4 {
+ font-weight:300;
+ margin-bottom:10px;
+}
+
+.over p {
+ line-height:1.8;
+ max-width:800px;
+}
+
+/* FADE IN */
+.fade {
+ opacity:0;
+ transform: translateY(40px);
+ transition: all 1s ease;
+}
+
+.fade.show {
+ opacity:1;
+ transform: translateY(0);
+}
+
+/* MOBIEL */
+@media (max-width: 900px) {
+
+.hero {
+ flex-direction:column;
+}
+
+.hero img {
+ width:100%;
+ height:50vh;
+}
+
+.hero-text {
+ width:100%;
+ padding:40px;
+}
+
+.hero-text h1 {
+ font-size:32px;
+}
+
+.over {
+ padding:60px 30px;
+}
+
+nav {
+ flex-direction:column;
+ align-items:center;
+}
+
+}
+
 </style>
-</head>
-
-<body>
-
-<nav>
-<div>FBF</div>
-<div>
-<a href="index.html">Home</a>
-<a href="portfolio.html">Portfolio</a>
-<a href="over.html">Over mij</a>
-<a href="contact.html">Contact</a>
-</div>
-</nav>
-
-<section class="hero">
-<img src="hero.JPG">
-<div class="hero-text">
-<h1>Welkom bij mijn online portfolio</h1>
-<p>Fleur Bakker Fotografie</p>
-<p class="rood">(hero.JPG)</p>
-</div>
-</section>
-
-<section class="over">
-<h2>Over</h2>
-<h4>Fotografie met oog voor licht en gevoel</h4>
-<h5>Conceptuele portret- en themafotografie met oog voor mens, sfeer en schoonheid</h5>
-
-<p>Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien. Maar mijn fotografie draait om meer dan dat. Ik leg de schoonheid vast die mij raakt in een detail, een blik of een omgeving waarin alles samenkomt.
-
-​
-
-Licht, compositie en gevoel spelen daarin een grote rol. De details zijn onderdeel van het grotere geheel, het hele plaatje. Mijn fotografie laat zien hoe licht en sfeer een moment kunnen versterken.
-
-​
-
-Die schoonheid vang ik niet alleen in de juiste hoek of het mooiste licht, maar ook in een blik, houding of oprechte glimlach. Je hoeft geen fotomodel te zijn om jezelf terug te zien op een mooie en eerlijke manier.
-
-​
-
-Ik kijk door een positieve lens naar de mens en de wereld om mij heen en nodig je uit om hetzelfde te doen, zodat ook jij de schoonheid om je heen en in jezelf kunt zien.
-
-​
-
-Benieuwd naar mijn werk? Neem een kijkje in mijn portfolio.</p>
-
-</section>
-
-</body>
-</html>
