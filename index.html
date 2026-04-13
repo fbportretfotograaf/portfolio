@@ -8,6 +8,7 @@
 
 <style>
 
+/* BASIS */
 body {
  margin:0;
  font-family:'Inter', sans-serif;
@@ -16,13 +17,15 @@ body {
  overflow-x:hidden;
 }
 
-/* NAVBAR GLASS */
+/* NAVBAR */
 nav {
  display:flex;
  justify-content:space-between;
- padding:20px 50px;
+ align-items:center;
+ padding:20px 80px;
  position:fixed;
  width:100%;
+ box-sizing:border-box;
  z-index:1000;
  background:rgba(0,0,0,0.3);
  backdrop-filter: blur(12px);
@@ -35,7 +38,7 @@ nav.scrolled {
 
 nav a {
  color:white;
- margin-left:30px;
+ margin-left:25px;
  text-decoration:none;
  font-size:13px;
  letter-spacing:2px;
@@ -46,7 +49,7 @@ nav a:hover {
  opacity:0.6;
 }
 
-/* HERO FULLSCREEN */
+/* HERO */
 .hero {
  position:relative;
  height:100vh;
@@ -57,14 +60,17 @@ nav a:hover {
  width:100%;
  height:100%;
  object-fit:cover;
- filter:brightness(0.7);
+ filter:brightness(0.9);
+}
+
+/* HERO TEXT (rechts positie zoals jij wilde) */
 .hero-text {
  position:absolute;
  top:40%;
  left:80%;
  transform:translate(-50%, -50%);
  text-align:center;
- width:100%;
+ max-width:300px;
 }
 
 .hero-text h1 {
@@ -75,15 +81,17 @@ nav a:hover {
 
 .hero-text p {
  font-size:18px;
- opacity:0.8;
+ opacity:0.85;
 }
 
-/* OVERLAP SECTION (WIX STYLE) */
+/* BLAUWE BALK */
 .over {
  margin-top:-100px;
  background:rgba(11, 31, 92, 0.6);
  padding:100px 80px;
  backdrop-filter: blur(10px);
+ position:relative;
+ z-index:2;
 }
 
 .over h2 {
@@ -109,7 +117,7 @@ nav a:hover {
  transform:translateY(0);
 }
 
-/* IMAGE HOVER ZOOM */
+/* HOVER ZOOM */
 .zoom {
  overflow:hidden;
 }
@@ -122,12 +130,14 @@ nav a:hover {
  transform:scale(1.05);
 }
 
-/* MOBILE */
+/* MOBIEL */
 @media (max-width:900px){
 
 .hero-text {
- left:30px;
- bottom:40px;
+ top:50%;
+ left:50%;
+ transform:translate(-50%, -50%);
+ text-align:center;
 }
 
 .hero-text h1 {
@@ -140,17 +150,7 @@ nav a:hover {
 }
 
 nav {
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:20px 50px;
- position:fixed;
- width:100%;
- box-sizing:border-box; 
- z-index:1000;
- background:rgba(0,0,0,0.3);
- backdrop-filter: blur(12px);
-}
+ padding:20px;
 }
 
 }
@@ -160,6 +160,7 @@ nav {
 
 <body>
 
+<!-- NAV -->
 <nav id="nav">
 <div>FBF</div>
 <div>
@@ -170,23 +171,44 @@ nav {
 </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero zoom fade">
-<img src="hero.jpg">
+<img src="hero.jpg" alt="Hero afbeelding">
 <div class="hero-text">
 <h1>Fleur Bakker</h1>
 <p>Fotografie met oog voor licht en gevoel</p>
 </div>
 </section>
 
+<!-- OVER -->
 <section class="over fade">
 <h2>Over</h2>
 
 <p>
-Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien...
+Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien. 
+Maar mijn fotografie draait om meer dan dat. Ik leg de schoonheid vast die mij raakt 
+in een detail, een blik of een omgeving waarin alles samenkomt.
+
+<br><br>
+
+Licht, compositie en gevoel spelen daarin een grote rol. De details zijn onderdeel 
+van het grotere geheel, het hele plaatje. Mijn fotografie laat zien hoe licht en 
+sfeer een moment kunnen versterken.
+
+<br><br>
+
+Die schoonheid vang ik niet alleen in de juiste hoek of het mooiste licht, maar ook 
+in een blik, houding of oprechte glimlach.
+
+<br><br>
+
+Ik kijk door een positieve lens naar de mens en de wereld om mij heen en nodig je 
+uit om hetzelfde te doen.
 </p>
 
 </section>
 
+<!-- SCRIPTS -->
 <script>
 
 /* NAV SCROLL EFFECT */
