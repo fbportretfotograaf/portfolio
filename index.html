@@ -1,7 +1,12 @@
-<style>
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>Fleur Bakker Fotografie</title>
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap');
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
 
 body {
  margin:0;
@@ -11,111 +16,119 @@ body {
  overflow-x:hidden;
 }
 
-/* NAV */
+/* NAVBAR GLASS */
 nav {
  display:flex;
  justify-content:space-between;
- padding:20px 40px;
+ padding:20px 50px;
  position:fixed;
  width:100%;
  z-index:1000;
- background:rgba(0,0,0,0.4);
- backdrop-filter: blur(10px);
- border-bottom:1px solid rgba(255,255,255,0.1);
+ background:rgba(0,0,0,0.3);
+ backdrop-filter: blur(12px);
+ transition:0.3s;
+}
+
+nav.scrolled {
+ background:rgba(0,0,0,0.8);
 }
 
 nav a {
  color:white;
- margin-left:25px;
+ margin-left:30px;
  text-decoration:none;
- font-size:14px;
- letter-spacing:1px;
+ font-size:13px;
+ letter-spacing:2px;
+ text-transform:uppercase;
 }
 
 nav a:hover {
- opacity:0.7;
+ opacity:0.6;
 }
 
-/* HERO */
+/* HERO FULLSCREEN */
 .hero {
- display:flex;
- min-height:80vh;
+ position:relative;
+ height:100vh;
+ overflow:hidden;
 }
 
 .hero img {
- width:50%;
+ width:100%;
+ height:100%;
  object-fit:cover;
+ filter:brightness(0.7);
 }
 
+/* HERO TEXT OVER IMAGE */
 .hero-text {
- width:50%;
- display:flex;
- flex-direction:column;
- justify-content:center;
- padding:80px;
+ position:absolute;
+ bottom:80px;
+ left:80px;
 }
 
 .hero-text h1 {
  font-family:'Playfair Display', serif;
- font-size:48px;
- font-weight:500;
- margin-bottom:20px;
+ font-size:60px;
+ margin:0;
 }
 
 .hero-text p {
- font-size:16px;
+ font-size:18px;
  opacity:0.8;
 }
 
-/* OVER */
+/* OVERLAP SECTION (WIX STYLE) */
 .over {
+ margin-top:-100px;
  background:#0b1f5c;
  padding:100px 80px;
+ position:relative;
+ z-index:2;
 }
 
 .over h2 {
  font-family:'Playfair Display', serif;
- font-size:36px;
+ font-size:40px;
  margin-bottom:20px;
 }
 
-.over h4 {
- font-weight:300;
- margin-bottom:10px;
-}
-
 .over p {
- line-height:1.8;
+ line-height:1.9;
  max-width:800px;
 }
 
 /* FADE IN */
 .fade {
  opacity:0;
- transform: translateY(40px);
- transition: all 1s ease;
+ transform:translateY(60px);
+ transition:1.2s ease;
 }
 
 .fade.show {
  opacity:1;
- transform: translateY(0);
+ transform:translateY(0);
 }
 
-/* MOBIEL */
-@media (max-width: 900px) {
-
-.hero {
- flex-direction:column;
+/* IMAGE HOVER ZOOM */
+.zoom {
+ overflow:hidden;
 }
 
-.hero img {
- width:100%;
- height:50vh;
+.zoom img {
+ transition: transform 0.8s ease;
 }
+
+.zoom:hover img {
+ transform:scale(1.05);
+}
+
+/* MOBILE */
+@media (max-width:900px){
 
 .hero-text {
- width:100%;
- padding:40px;
+ left:30px;
+ bottom:40px;
 }
 
 .hero-text h1 {
@@ -124,13 +137,68 @@ nav a:hover {
 
 .over {
  padding:60px 30px;
+ margin-top:-50px;
 }
 
 nav {
- flex-direction:column;
- align-items:center;
+ padding:20px;
 }
 
 }
 
 </style>
+</head>
+
+<body>
+
+<nav id="nav">
+<div>FBF</div>
+<div>
+<a href="index.html">Home</a>
+<a href="portfolio.html">Portfolio</a>
+<a href="over.html">Over mij</a>
+<a href="contact.html">Contact</a>
+</div>
+</nav>
+
+<section class="hero zoom fade">
+<img src="hero.jpg">
+<div class="hero-text">
+<h1>Fleur Bakker</h1>
+<p>Fotografie met oog voor licht en gevoel</p>
+</div>
+</section>
+
+<section class="over fade">
+<h2>Over</h2>
+
+<p>
+Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien...
+</p>
+
+</section>
+
+<script>
+
+/* NAV SCROLL EFFECT */
+window.addEventListener("scroll", function() {
+ document.getElementById("nav").classList.toggle("scrolled", window.scrollY > 50);
+});
+
+/* FADE IN */
+const faders = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+  if(entry.isIntersecting){
+   entry.target.classList.add('show');
+  }
+ });
+});
+
+faders.forEach(el => observer.observe(el));
+
+</script>
+
+</body>
+</html>
