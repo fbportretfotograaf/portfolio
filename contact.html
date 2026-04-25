@@ -18,24 +18,43 @@
 
   <style>
     /* ─── Design tokens ─── */
-    :root {
-      --bg:          #0b0f1c;          /* deep navy – same as site */
-      --bg2:         #0e1220;
-      --yellow:      #f0ff1f;          /* "fel geel" */
-      --yellow-dim:  rgba(245,209,48,.15);
-      --white:       #ffffff;
-      --white-40:    rgba(255,255,255,.40);
-      --white-10:    rgba(255,255,255,.06);
-      --card-bg:     rgba(0, 31, 120, 0.38); /* transparent card like blue box */
-      backdrop-filter: blur(8px)
-       border-top: 1px solid  
-      --card-border: rgba(245,209,48,.18);
-      --nav-h:       68px;
-      --font-head:   'Playfair Display 500', ' Inter 300/400';
-      --font-body:   'Raleway', sans-serif;
-      --radius:      6px;
-      --ease:        .3s ease;
-    }
+
+
+    <style>
+
+/* BASE */
+/* BASE */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
+
+:root {
+  --bg: #0b0f1c;
+  --bg2: #0e1220;
+
+  --yellow: #f0ff1f;
+  --yellow-dim: rgba(245, 209, 48, 0.15);
+
+  --white: #ffffff;
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-10: rgba(255, 255, 255, 0.06);
+
+  --card-bg: rgba(0, 31, 120, 0.38);
+  --card-border: rgba(245, 209, 48, 0.18);
+
+  --nav-h: 68px;
+
+  /* Fonts */
+  --font-head: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --radius: 6px;
+  --ease: 0.3s ease;
+}
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
