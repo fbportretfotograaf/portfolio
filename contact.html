@@ -84,45 +84,36 @@ h1, h2, h3 {
 }
     }
 
-    /* ═══════════════════════════
-       NAVBAR
-    ═══════════════════════════ */
-     /* ── NAV ── */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .nav-logo {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: white;
-      text-decoration: none;
-    }
-    .nav-links { display: flex; align-items: center; }
-    .nav-links a {
-      color: white;
-      margin-left: 25px;
-      text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 1px;
-      font-weight: 300;
-      transition: opacity 0.3s;
-    }
-    .nav-links a:hover { opacity: 0.7; }
-    .nav-links a.active {
-      border-bottom: 1px solid rgba(255,255,255,0.5);
-      padding-bottom: 2px;
-    }
+
+/* NAV GLASS */
+nav {
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:35px 80px;
+ position:fixed;
+ width:100%;
+ z-index:1000;
+ box-sizing:border-box;
+
+ background:rgba(0,0,0,0.0);         /* menu navigatiebalk transparant gemaakt*/
+ backdrop-filter: blur(0px);
+ border-bottom:0px solid rgba();
+}
+
+nav a {
+ color:white;
+ margin-left:22px;
+ text-decoration:none;
+ font-size:11px;
+ letter-spacing:2px;
+ text-transform:uppercase;
+ transition:0.3s;
+}
+
+nav a:hover {
+ color:#f0ff1f;
+}
   
 
     /* Hamburger */
