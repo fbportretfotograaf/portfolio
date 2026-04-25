@@ -13,23 +13,20 @@
       font-family: 'Inter', sans-serif;
       color: white;
       overflow-x: hidden;
-      /* full-page gradient: black top → deep blue bottom */
-      background: linear-gradient(to bottom, #000000 0%, #040a1e 40%, #0b1f5c 100%);
-      background-attachment: fixed;
+      background: linear-gradient(to bottom, #000000 0%, #040a1e 45%, #0b1f5c 100%);
     }
 
-    /* ── NAV ── */
+    /* ── NAV — transparant, geel hover ── */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 35px 80px;
       position: fixed;
       width: 100%;
       z-index: 1000;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      box-sizing: border-box;
+      background: transparent;
     }
     .nav-logo {
       font-family: 'Inter', sans-serif;
@@ -38,24 +35,27 @@
       letter-spacing: 2px;
       color: white;
       text-decoration: none;
+      transition: color 0.3s;
     }
+    .nav-logo:hover { color: #f0ff1f; }
     .nav-links { display: flex; align-items: center; }
     .nav-links a {
       color: white;
       margin-left: 25px;
       text-decoration: none;
-      font-size: 14px;
-      letter-spacing: 1px;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
       font-weight: 300;
-      transition: opacity 0.3s;
+      transition: color 0.3s;
     }
-    .nav-links a:hover { opacity: 0.7; }
+    .nav-links a:hover { color: #f0ff1f; }
     .nav-links a.active {
       border-bottom: 1px solid rgba(255,255,255,0.5);
       padding-bottom: 2px;
     }
 
-    /* ── HERO ── */
+    /* ── HERO MET PORTFOLIO TITEL ERIN ── */
     .hero {
       position: relative;
       width: 100%;
@@ -73,23 +73,28 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.55) 100%);
     }
-
-    /* ── PAGE TITLE ── */
-    .page-title {
+    /* Titel bovenop de hero afbeelding */
+    .hero-title {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
       text-align: center;
-      padding: 60px 40px 20px;
       font-family: 'Playfair Display', serif;
-      font-size: 44px;
+      font-size: 56px;
       font-weight: 500;
-      letter-spacing: 2px;
-      color: rgb(240, 255, 31);
+      letter-spacing: 3px;
+      color: #f0ff1f;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      white-space: nowrap;
     }
 
     /* ── SLIDESHOWS ── */
     .slideshows {
-      padding: 40px 60px 80px;
+      padding: 60px 60px 80px;
       display: flex;
       flex-direction: column;
       gap: 72px;
@@ -115,6 +120,8 @@
     /* ── SLIDER ── */
     .slider-outer {
       position: relative;
+      /* ruimte links en rechts voor de pijlknoppen */
+      padding: 0 44px;
     }
     .slider-track-wrap {
       overflow: hidden;
@@ -125,14 +132,13 @@
       transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* Each image card — width set by JS, 2:3 ratio */
+    /* Elke afbeeldingskaart — breedte via JS, 2:3 ratio */
     .img-wrap {
       flex-shrink: 0;
       aspect-ratio: 2 / 3;
       position: relative;
       overflow: hidden;
       cursor: pointer;
-      /* width is set inline by JS */
     }
     .img-wrap img {
       width: 100%;
@@ -148,18 +154,16 @@
       background: rgba(0,0,0,0.4);
       transition: opacity 0.4s ease;
     }
-    .img-wrap:hover::after {
-      opacity: 0;
-    }
+    .img-wrap:hover::after { opacity: 0; }
 
-    /* ── ARROWS ── */
+    /* ── PIJLEN — links en rechts van de slider ── */
     .slider-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       background: transparent;
       border: none;
-      color: rgb(240, 255, 31);
+      color: #f0ff1f;
       width: 36px;
       height: 36px;
       display: flex;
@@ -174,6 +178,8 @@
       padding: 0;
     }
     .slider-btn:hover { opacity: 0.65; }
+    .slider-btn.prev { left: 0; }
+    .slider-btn.next { right: 0; }
 
     /* ── FADE IN ── */
     .fade {
@@ -194,18 +200,18 @@
 
     /* ── MOBILE ── */
     @media (max-width: 900px) {
-      nav { flex-direction: column; gap: 10px; align-items: center; }
-      .nav-links { flex-wrap: wrap; justify-content: center; }
+      nav { padding: 20px; }
       .nav-links a { margin: 4px 10px; }
       .hero { height: 280px; }
-      .page-title { font-size: 32px; padding-top: 40px; }
+      .hero-title { font-size: 36px; bottom: 24px; }
       .slideshows { padding: 30px 16px 60px; gap: 50px; }
+      .slider-outer { padding: 0 32px; }
     }
+
     /* ── COPY PROTECTION ── */
-    img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    img { -webkit-user-drag: none; pointer-events: none; }
     .img-wrap { -webkit-user-select: none; user-select: none; }
     body { -webkit-user-select: none; user-select: none; }
-
   </style>
 </head>
 <body>
@@ -221,14 +227,13 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO MET TITEL ERIN -->
   <div class="hero">
     <img src="https://static.wixstatic.com/media/be7317_f7e72a73cccc488aa641fcc96a0eeeef~mv2.jpg/v1/crop/x_16,y_295,w_2402,h_944/fill/w_1364,h_536,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/be7317_f7e72a73cccc488aa641fcc96a0eeeef~mv2.jpg" alt="Portfolio header" />
+    <h1 class="hero-title">Portfolio</h1>
   </div>
 
-  <!-- CONTENT -->
-  <h1 class="page-title fade">Portfolio</h1>
-
+  <!-- SLIDESHOWS -->
   <section class="slideshows">
 
     <!-- SLIDESHOW 1: Aurelio -->
@@ -237,7 +242,7 @@
         <h2>Fotoshoot Aurelio</h2>
         <p>Fitness Fotoshoot: Spier definitie</p>
       </div>
-      <div class="slider-outer" data-track="track-1">
+      <div class="slider-outer">
         <div class="slider-track-wrap">
           <div class="slider-track" id="track-1">
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_975933f22a1b45709cc138b658c1252c~mv2.jpg/v1/fill/w_600,h_860,fp_0.47_0.32,q_90,enc_avif,quality_auto/be7317_975933f22a1b45709cc138b658c1252c~mv2.jpg" alt="Aurelio 1" /></div>
@@ -246,8 +251,8 @@
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_a6ed475f8f5c48b8ae5fefeb7103246a~mv2.jpg/v1/fill/w_600,h_860,fp_0.59_0.35,q_90,enc_avif,quality_auto/be7317_a6ed475f8f5c48b8ae5fefeb7103246a~mv2.jpg" alt="Aurelio 4" /></div>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="slide('track-1',-1)">&#8592;</button>
-        <button class="slider-btn next" onclick="slide('track-1', 1)">&#8594;</button>
+        <button class="slider-btn prev" onclick="slide('track-1', -1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slide('track-1',  1)">&#8594;</button>
       </div>
     </div>
 
@@ -257,7 +262,7 @@
         <h2>Fotoshoot Sanne</h2>
         <p>Outdoor/Buiten-fotoshoot: Glamour &amp; Fairytale core</p>
       </div>
-      <div class="slider-outer" data-track="track-2">
+      <div class="slider-outer">
         <div class="slider-track-wrap">
           <div class="slider-track" id="track-2">
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_4ef29f8203f344ee9ced2d395586eef4~mv2.jpg/v1/fill/w_600,h_860,q_90,enc_avif,quality_auto/be7317_4ef29f8203f344ee9ced2d395586eef4~mv2.jpg" alt="Sanne 1" /></div>
@@ -266,8 +271,8 @@
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_fc102fa794584bb38a1bd50d668cc067~mv2.jpg/v1/fill/w_600,h_860,fp_0.45_0.34,q_90,enc_avif,quality_auto/be7317_fc102fa794584bb38a1bd50d668cc067~mv2.jpg" alt="Sanne 4" /></div>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="slide('track-2',-1)">&#8592;</button>
-        <button class="slider-btn next" onclick="slide('track-2', 1)">&#8594;</button>
+        <button class="slider-btn prev" onclick="slide('track-2', -1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slide('track-2',  1)">&#8594;</button>
       </div>
     </div>
 
@@ -277,7 +282,7 @@
         <h2>Fotoshoot Julia</h2>
         <p>Outdoor/Buiten-Fotoshoot: Naturel &amp; Fashion Portretten</p>
       </div>
-      <div class="slider-outer" data-track="track-3">
+      <div class="slider-outer">
         <div class="slider-track-wrap">
           <div class="slider-track" id="track-3">
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_28f57b075f054153b4b9082226315b81~mv2.jpg/v1/fill/w_600,h_860,fp_0.51_0.29,q_90,enc_avif,quality_auto/be7317_28f57b075f054153b4b9082226315b81~mv2.jpg" alt="Julia 1" /></div>
@@ -286,8 +291,8 @@
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_aaf8a2d068cd4e7f9cdb20146c29af81~mv2.jpg/v1/fill/w_600,h_860,fp_0.48_0.3,q_90,enc_avif,quality_auto/be7317_aaf8a2d068cd4e7f9cdb20146c29af81~mv2.jpg" alt="Julia 4" /></div>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="slide('track-3',-1)">&#8592;</button>
-        <button class="slider-btn next" onclick="slide('track-3', 1)">&#8594;</button>
+        <button class="slider-btn prev" onclick="slide('track-3', -1)">&#8592;</button>
+        <button class="slider-btn next" onclick="slide('track-3',  1)">&#8594;</button>
       </div>
     </div>
 
@@ -296,80 +301,74 @@
   <footer>©2026 Copyrights</footer>
 
   <script>
+    const TRACK_IDS = ['track-1', 'track-2', 'track-3'];
+    const GAP     = 8;
+    const VISIBLE = 3; // toon 3 volledige afbeeldingen tegelijk
+
+    // state: huidige index per track
     const state = {};
-    const GAP = 8;
-    const VISIBLE = 3.5;
+    TRACK_IDS.forEach(id => state[id] = 0);
 
     function initSliders() {
-      ['track-1', 'track-2', 'track-3'].forEach(id => {
-        const track = document.getElementById(id);
-        const trackWrap = track.parentElement; // .slider-track-wrap
+      TRACK_IDS.forEach(id => {
+        const track     = document.getElementById(id);
+        const trackWrap = track.parentElement;
         const containerW = trackWrap.offsetWidth;
-        // Calculate image width so exactly 3.5 fit in the container
-        const imgW = (containerW - GAP * Math.floor(VISIBLE)) / VISIBLE;
 
-        // Apply width to every img-wrap in this track
+        // Breedte zodat precies VISIBLE afbeeldingen volledig passen
+        const imgW = (containerW - GAP * (VISIBLE - 1)) / VISIBLE;
+
         track.querySelectorAll('.img-wrap').forEach(el => {
           el.style.width = imgW + 'px';
         });
 
-        // Position arrows
-        const outer = track.closest('.slider-outer');
-        const prevBtn = outer.querySelector('.slider-btn.prev');
-        const nextBtn = outer.querySelector('.slider-btn.next');
-        // prev: at left edge of first image
-        prevBtn.style.left = '0px';
-        prevBtn.style.right = 'auto';
-        // next: at right edge of 3rd image (start of the half-visible 4th)
-        nextBtn.style.left = ((imgW + GAP) * 3 - GAP / 2) + 'px';
-        nextBtn.style.right = 'auto';
-
-        // Re-apply current scroll position
-        if (state[id] !== undefined) {
-          track.style.transform = `translateX(-${state[id] * (imgW + GAP)}px)`;
-        }
+        // Herpositioneer naar huidige index na resize
+        applyTransform(id, imgW);
       });
     }
 
-    function goTo(trackId, idx) {
-      const track = document.getElementById(trackId);
-      const total = track.querySelectorAll('.img-wrap').length;
-      const maxIdx = Math.max(0, total - Math.ceil(VISIBLE));
-      idx = Math.max(0, Math.min(idx, maxIdx));
-      state[trackId] = idx;
+    function getImgW(trackId) {
+      return document.querySelector(`#${trackId} .img-wrap`).offsetWidth;
+    }
 
-      const imgW = track.querySelector('.img-wrap').offsetWidth;
+    function applyTransform(trackId, imgW) {
+      const track = document.getElementById(trackId);
+      const idx   = state[trackId] || 0;
       track.style.transform = `translateX(-${idx * (imgW + GAP)}px)`;
     }
 
-    function slide(trackId, dir) {
-      const current = state[trackId] || 0;
-      goTo(trackId, current + dir);
+    function goTo(trackId, idx) {
+      const track  = document.getElementById(trackId);
+      const total  = track.querySelectorAll('.img-wrap').length;
+      const maxIdx = total - VISIBLE;       // maximale index zodat laatste afbeelding volledig zichtbaar is
+      idx = Math.max(0, Math.min(idx, maxIdx));
+      state[trackId] = idx;
+      applyTransform(trackId, getImgW(trackId));
     }
 
-    // Init on load and resize
-    window.addEventListener('load', initSliders);
+    function slide(trackId, dir) {
+      goTo(trackId, (state[trackId] || 0) + dir);
+    }
+
+    window.addEventListener('load',   initSliders);
     window.addEventListener('resize', initSliders);
 
-    // Fade in on scroll
+    // Fade in bij scrollen
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.fade').forEach(el => obs.observe(el));
   </script>
-  <script>
-    // Disable right-click
-    document.addEventListener('contextmenu', e => e.preventDefault());
 
-    // Disable common copy/save shortcuts
+  <script>
+    // Kopieerbeveiliging
+    document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       const blocked = (
-        (e.ctrlKey || e.metaKey) && ['s', 'u', 'p', 'a', 'c'].includes(e.key.toLowerCase())
+        (e.ctrlKey || e.metaKey) && ['s','u','p','a','c'].includes(e.key.toLowerCase())
       ) || e.key === 'F12';
       if (blocked) e.preventDefault();
     });
-
-    // Disable drag of images
     document.addEventListener('dragstart', e => {
       if (e.target.tagName === 'IMG') e.preventDefault();
     });
