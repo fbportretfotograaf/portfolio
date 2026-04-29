@@ -18,41 +18,50 @@
       min-height: 100vh;
     }
 
-    /* ── NAV ── */
+    /* ═══════════════════════════
+       NAV — zelfde als homepage
+    ═══════════════════════════ */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 35px 80px;
       position: fixed;
       width: 100%;
       z-index: 1000;
-      background: rgba(0,0,0,0.4);
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.0);
       backdrop-filter: blur(0px);
-      border-bottom: 1px solid rgba(0,0,0,0.0);
+      border-bottom: 0px solid rgba(0,0,0,0);
     }
-    .nav-logo {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      font-weight: 400;
-      letter-spacing: 2px;
-      color: white;
-      text-decoration: none;
-    }
-    .nav-links { display: flex; align-items: center; }
-    .nav-links a {
+
+    nav a {
       color: white;
       margin-left: 22px;
       text-decoration: none;
       font-size: 11px;
       letter-spacing: 2px;
-      font-weight: 300;
-      transition: opacity 0.3s;
+      text-transform: uppercase;
+      transition: 0.3s;
     }
 
- nav a:hover {
- color:#f0ff1f;
-}
+    nav a:hover,
+    nav a.active {
+      color: #f0ff1f;
+      text-decoration: none;
+    }
+
+    /* FBF logo — geen marge links, altijd wit */
+    nav .nav-logo {
+      margin-left: 0;
+      color: white;
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+
+    nav .nav-logo:hover {
+      color: #f0ff1f;
+    }
 
     /* ── HERO ── */
     .hero {
