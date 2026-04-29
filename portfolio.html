@@ -15,47 +15,35 @@
       overflow-x: hidden;
       background: linear-gradient(to bottom, #000000 0%, #040a1e 45%, #0b1f5c 100%);
     }
+/* NAV GLASS */
+nav {
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:35px 80px;
+ position:fixed;
+ width:100%;
+ z-index:1000;
+ box-sizing:border-box;
 
-     /* ═══════════════════════════
-       NAV — zelfde als homepage
-    ═══════════════════════════ */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 35px 80px;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      box-sizing: border-box;
-      background: rgba(0, 0, 0, 0.0);
-      backdrop-filter: blur(0px);
-      border-bottom: 0px solid rgba(0,0,0,0);
-    }
+ background:rgba(0,0,0,0.0);         /* menu navigatiebalk transparant gemaakt*/
+ backdrop-filter: blur(0px);
+ border-bottom:0px solid rgba();
+}
 
-    nav a {
-      color: white;
-      margin-left: 22px;
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
+nav a {
+ color:white;
+ margin-left:22px;
+ text-decoration:none;
+ font-size:11px;
+ letter-spacing:2px;
+ text-transform:uppercase;
+ transition:0.3s;
+}
 
-    nav a:hover,
-    nav a.active {
-      color: #f0ff1f;
-      text-decoration: none;
-    }
-
-    /* FBF logo — geen marge links, altijd wit */
-    nav .nav-logo {
-      margin-left: 0;
-      color: white;
-      font-size: 14px;
-      letter-spacing: 3px;
-    }
+nav a:hover {
+ color:#f0ff1f;
+}
 
     nav .nav-logo:hover {
       color: #f0ff1f;
