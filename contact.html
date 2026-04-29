@@ -2,68 +2,45 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<title>Contact</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Fleur Bakker Fotografie</title>
 
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | Fleur Bakker Fotografie</title>
-
- <!-- Google Fonts – elegant serif + clean sans matching the site's aesthetic -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
 
   <style>
   
-        html, body {
+    html, body {
       font-family: 'Inter', sans-serif;
       color: white;
       overflow-x: hidden;
       background: linear-gradient(to bottom, #000000 0%, #040a1e 40%, #0b1f5c 100%);
       background-attachment: fixed;
       min-height: 100vh;
-}
+    }
 
-:root {
-  --bg: #0b0f1c;
-  --bg2: #0e1220;
-
-  --yellow: #f0ff1f;
-  --yellow-dim: rgba(245, 209, 48, 0.15);
-
-  --white: #ffffff;
-  --white-40: rgba(255, 255, 255, 0.4);
-  --white-10: rgba(255, 255, 255, 0.06);
-
-  --card-bg: rgba(0, 31, 120, 0.38);
-  --card-border: rgba(245, 209, 48, 0.18);
-
-  --nav-h: 68px;
-
-  /* Fonts */
-
-.hero-text h1 {
- font-family:'Playfair Display', serif;
- font-size:56px;
- margin:0;
-
-  
-  --font-body: 'Inter', sans-serif;
-
-  --radius: 6px;
-  --ease: 0.3s ease;
-}
+    :root {
+      --bg: #0b0f1c;
+      --bg2: #0e1220;
+      --yellow: #f0ff1f;
+      --yellow-dim: rgba(245, 209, 48, 0.15);
+      --white: #ffffff;
+      --white-40: rgba(255, 255, 255, 0.4);
+      --white-10: rgba(255, 255, 255, 0.06);
+      --card-bg: rgba(0, 31, 120, 0.38);
+      --card-border: rgba(245, 209, 48, 0.18);
+      --nav-h: 68px;
+      --font-body: 'Inter', sans-serif;
+      --radius: 6px;
+      --ease: 0.3s ease;
+    }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
       background-color: var(--bg);
-      /* Subtle texture – thin diagonal lines */
       background-image: repeating-linear-gradient(
         135deg,
         rgba(255,255,255,.012) 0px,
@@ -72,105 +49,57 @@
         transparent 60px
       );
       color: var(--white);
-      
-      body {
-  font-family: 'Inter', sans-serif;
-  font-weight: 400;
-}
-
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-}
     }
 
-
-/* NAV GLASS */
-nav {
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:35px 80px;
- position:fixed;
- width:100%;
- z-index:1000;
- box-sizing:border-box;
-
- background:rgba(0,0,0,0.0);         /* menu navigatiebalk transparant gemaakt*/
- backdrop-filter: blur(0px);
- border-bottom:0px solid rgba();
-}
-
-nav a {
- color:white;
- margin-left:22px;
- text-decoration:none;
- font-size:11px;
- letter-spacing:2px;
- text-transform:uppercase;
- transition:0.3s;
-}
-
-nav a:hover {
- color:#f0ff1f;
-}
-  
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: var(--yellow);
-      border-radius: 2px;
-      transition: transform var(--ease), opacity var(--ease);
-    }
-
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    /* Mobile nav */
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      top: var(--nav-h);
-      left: 0; right: 0;
-      background: rgba(11,15,28,.97);
-      border-bottom: 1px solid rgba(245,209,48,.1);
-      padding: 20px 40px 28px;
-      z-index: 99;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .nav-mobile.open { display: flex; }
-
-    .nav-mobile a {
-      color: var(--white-40);
-      text-decoration: none;
-      font-size: .85rem;
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
       font-weight: 500;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      transition: color var(--ease);
     }
 
-    .nav-mobile a:last-child { border-bottom: none; }
-    .nav-mobile a:hover,
-    .nav-mobile a.active { color: var(--yellow); }
+    /* ═══════════════════════════
+       NAV — zelfde als homepage
+    ═══════════════════════════ */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 35px 80px;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.0);
+      backdrop-filter: blur(0px);
+      border-bottom: 0px solid rgba(0,0,0,0);
+    }
+
+    nav a {
+      color: white;
+      margin-left: 22px;
+      text-decoration: none;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f0ff1f;
+      text-decoration: none;
+    }
+
+    /* FBF logo — geen marge links, altijd wit */
+    nav .nav-logo {
+      margin-left: 0;
+      color: white;
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+
+    nav .nav-logo:hover {
+      color: #f0ff1f;
+    }
 
     /* ═══════════════════════════
        PAGE CONTENT
@@ -194,7 +123,6 @@ nav a:hover {
     }
 
     .page-title h1 {
-      font-family: var(--font-head);
       font-weight: 400;
       font-size: clamp(2.4rem, 6vw, 4rem);
       color: #f0ff1f;
@@ -252,10 +180,9 @@ nav a:hover {
       padding: 28px 26px 24px;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(8px);
     }
 
-    /* Top yellow shimmer line on card */
     .card::after {
       content: '';
       position: absolute;
@@ -266,7 +193,6 @@ nav a:hover {
     }
 
     .card h3 {
-      font-family: var(--font-head);
       font-weight: 400;
       font-size: 1.25rem;
       color: var(--yellow);
@@ -319,7 +245,7 @@ nav a:hover {
       padding: 36px 36px 32px;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(4px);
+      backdrop-filter: blur(8px);
     }
 
     .form-card::after {
@@ -333,7 +259,6 @@ nav a:hover {
 
     form { display: flex; flex-direction: column; gap: 14px; }
 
-    /* Honeypot */
     #company { display: none !important; }
 
     .form-row {
@@ -436,21 +361,11 @@ nav a:hover {
     /* ═══════════════════════════
        MOBILE
     ═══════════════════════════ */
-    @media (max-width: 700px) {
-      nav { padding: 0 20px; }
-
-      .nav-links { display: none; }
-
-      .hamburger { display: flex; }
-
-      .page { padding-top: calc(var(--nav-h) + 44px); padding-left: 18px; padding-right: 18px; }
-
+    @media (max-width: 900px) {
+      nav { padding: 20px; }
       .info-grid { grid-template-columns: 1fr; gap: 14px; }
-
       .form-card { padding: 24px 18px 20px; }
-
       .form-row { grid-template-columns: 1fr; gap: 14px; }
-
       .btn-submit { width: 100%; text-align: center; }
     }
 
@@ -461,28 +376,15 @@ nav a:hover {
 </head>
 <body>
 
-  <!-- ══ NAVBAR ══ -->
+  <!-- ══ NAVBAR — zelfde structuur als homepage ══ -->
   <nav>
-    <a class="nav-logo" href="index.html">FBF</a>
-
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="over.html">Over mij</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-
-    <button class="hamburger" id="hamburger" aria-label="Menu openen">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- Mobile nav -->
-  <nav class="nav-mobile" id="navMobile">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="over.html">Over mij</a>
-    <a href="contact.html" class="active">Contact</a>
+    <a href="index.html" class="nav-logo">FBF</a>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="over.html">Over mij</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
   </nav>
 
   <!-- ══ PAGE ══ -->
@@ -566,16 +468,8 @@ nav a:hover {
   <footer>©2026 Copyrights</footer>
 
   <!-- reCAPTCHA v3 -->
-  <script src="https://www.google.com/recaptcha/api.js?render=fbportretfotograaf"></script>  */wat moet hier bij fbfotograaf staan? recapta/*
+  <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
   <script>
-    /* ── Hamburgermenu ── */
-    const btn = document.getElementById('hamburger');
-    const mob = document.getElementById('navMobile');
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('open');
-      mob.classList.toggle('open');
-    });
-
     /* ── Tijdstempel ── */
     document.getElementById('form_time').value = Date.now();
 
@@ -585,17 +479,14 @@ nav a:hover {
       const startTime = parseInt(document.getElementById('form_time').value, 10);
       const now       = Date.now();
 
-      // Honeypot check
       if (honeypot !== '') { e.preventDefault(); return; }
 
-      // Tijdcheck (< 3 sec = bot)
       if ((now - startTime) < 3000) {
         e.preventDefault();
         alert('Formulier te snel verzonden. Probeer het opnieuw.');
         return;
       }
 
-      // reCAPTCHA v3
       e.preventDefault();
       grecaptcha.ready(function () {
         grecaptcha.execute('YOUR_SITE_KEY', { action: 'submit' }).then(function (token) {
