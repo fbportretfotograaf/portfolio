@@ -18,32 +18,36 @@
       min-height: 100vh;
     }
 
-    /* ═══════════════════════════
-       NAV — zelfde als homepage
-    ═══════════════════════════ */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 35px 80px;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      box-sizing: border-box;
-      background: rgba(0, 0, 0, 0.0);
-      backdrop-filter: blur(0px);
-      border-bottom: 0px solid rgba(0,0,0,0);
-    }
+/* NAV GLASS */
+nav {
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:35px 80px;
+ position:fixed;
+ width:100%;
+ z-index:1000;
+ box-sizing:border-box;
 
-    nav a {
-      color: white;
-      margin-left: 22px;
-      text-decoration: none;
-      font-size: 11px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
+ background:rgba(0,0,0,0.0);         /* menu navigatiebalk transparant gemaakt*/
+ backdrop-filter: blur(0px);
+ border-bottom:0px solid rgba();
+}
+
+nav a {
+ color:white;
+ margin-left:22px;
+ text-decoration:none;
+ font-size:11px;
+ letter-spacing:2px;
+ text-transform:uppercase;
+ transition:0.3s;
+}
+
+nav a:hover {
+ color:#f0ff1f;
+}
+ 
 
     nav a:hover,
     nav a.active {
