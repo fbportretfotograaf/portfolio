@@ -47,19 +47,28 @@ nav a:hover {
  color:#f0ff1f;
 }
 
-/* HERO */
+/* HERO css */
+
 .hero {
- position:relative;
- height:100vh;
- width:100%;
- overflow:hidden;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  /* Desktop afbeelding */
+  background-image: url('hero.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
-.hero img {
- width:100%;
- height:100%;
- object-fit:cover;
+/* Mobile afbeelding */
+@media (max-width: 900px) {
+  .hero {
+    background-image: url('heromob.jpg');
+    background-position: top center; /* optioneel: pas aan op je foto */
+  }
 }
+
 
 /* DARK OVERLAY */
 .hero::after {
@@ -233,8 +242,6 @@ nav {
 
 <!-- HERO -->
 <section class="hero">
-
-<img src="heromob.jpg">
 
 <div class="hero-text">
 <h1>Fleur Bakker Fotografie</h1>
