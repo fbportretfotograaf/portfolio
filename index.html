@@ -28,7 +28,7 @@ nav {
  z-index:1000;
  box-sizing:border-box;
 
- background:rgba(0,0,0,0.0);
+ background:rgba(0,0,0,0.0);         /* menu navigatiebalk transparant gemaakt*/
  backdrop-filter: blur(0px);
  border-bottom:0px solid rgba();
 }
@@ -37,7 +37,7 @@ nav a {
  color:white;
  margin-left:22px;
  text-decoration:none;
- font-size:11px;
+ font-size:8px;
  letter-spacing:2px;
  text-transform:uppercase;
  transition:0.3s;
@@ -59,7 +59,6 @@ nav a:hover {
  width:100%;
  height:100%;
  object-fit:cover;
- object-position: center center; /* desktop: midden */
 }
 
 /* DARK OVERLAY */
@@ -120,13 +119,13 @@ nav a:hover {
 
  display:flex;
 
- background:rgba(0, 31, 120, 0.38);
- backdrop-filter: blur(8px);
+ background:rgba(0, 31, 120, 0.35);   (achter de nul komt de transparantie, hoe lager hoe transparanter)
+ backdrop-filter: blur(2px);
 
  border-top:1px solid rgba(255,255,255,0.1);
 
- padding:18px 0;
- box-sizing:border-box;
+ padding:16px 0;          /* ruimte boven/onder Blauwe Tekst balk */
+ box-sizing:border-box;   /* voorkomt overflow */
 }
 
 /* LEFT TITLE */
@@ -153,18 +152,22 @@ nav a:hover {
 
 /* RIGHT TEXT */
 .over-right {
-  font-size: 11px;
- width:60%;
+  font-size: 10px;  /* font maat blauw tekstblok default is ~16px */
+ width:60%;    /*start tekst in blauw teksblok */
  display:flex;
  flex-direction:column;
  justify-content:center;
- padding:8px 70px 8px 30px;
+ padding:5px 66px 5px 34px;   PADDING AANGEPAST VAN 40 80 40 NAAR 10 70 10 boven - links - onder - rechts
 }
 
 .over-right p {
  line-height:1.9;
- max-width:750px;
+ max-width:690px;       (van 6 naar 7)
  transition:0.2s ease;
+}
+
+.over-right p:hover {
+ color:                  Tekst hoover kan aangepast door hierachter de code met hashtag te zetten
 }
 
 /* FADE */
@@ -179,52 +182,36 @@ nav a:hover {
  transform:translateY(0);
 }
 
-/* ═══════════════════════════
-   MOBILE
-═══════════════════════════ */
+/* MOBILE */
 @media (max-width:900px){
 
-nav {
- padding:20px;
-}
-
-/* Linkerkant van de foto tonen op mobiel */
-.hero img {
- object-position: left center;
-}
-
 .hero-text {
- top:40%;
+ top:45%;
  left:50%;
  transform:translate(-50%, -50%);
 }
 
 .hero-text h1 {
- font-size:38px;
+ font-size:40px;
 }
 
-/* Blauwe balk: groter, scrollt mee onder de hero */
 .over {
  flex-direction:column;
  height:auto;
- position:relative;   /* los van hero, schuift naar beneden */
- padding:28px 0 36px;
+ position:relative;
 }
 
 .over-left {
  display:none;
 }
 
-/* Tekst blok: volle breedte, groter font */
 .over-right {
  width:100%;
- padding:24px 28px;
- font-size:15px;      /* groter dan de 13px op desktop */
+ padding:40px;
 }
 
-.over-right p {
- line-height:2;
- max-width:100%;
+nav {
+ padding:20px;
 }
 
 }
@@ -238,7 +225,6 @@ nav {
 <nav>
 <div>FBF</div>
 <div>
-<a href="index.html">Home</a>
 <a href="portfolio.html">Portfolio</a>
 <a href="over.html">Over mij</a>
 <a href="contact.html">Contact</a>
@@ -248,14 +234,16 @@ nav {
 <!-- HERO -->
 <section class="hero">
 
-<img src="hero.jpg">
+<img src="heromob.jpg">
 
 <div class="hero-text">
 <h1>Fleur Bakker Fotografie</h1>
 <p id="subtext">Portretfotografie die bij jou past!</p>
 </div>
 
-<!-- OVER zit nu ook BINNEN hero zodat hij op desktop onderaan de foto staat -->
+</section>
+
+<!-- OVER (BELANGRIJK: BUITEN HERO) -->
 <section class="over fade">
 
 <div class="over-left">
@@ -263,6 +251,7 @@ nav {
 </div>
 
 <div class="over-right">
+
 <p>
 <strong><em>Portretfotograaf Provincie Utrecht</em></strong>
 <br><br>
@@ -273,8 +262,6 @@ Ik heb oog voor de mens en dát maakt elk portret persoonlijk en eigen.
 Als portretfotograaf help ik jou om jezelf op je mooist terug te zien!
 </p>
 </div>
-
-</section>
 
 </section>
 
