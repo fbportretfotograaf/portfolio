@@ -182,39 +182,51 @@ nav a:hover {
  transform:translateY(0);
 }
 
-/* MOBILE */
 @media (max-width:900px){
-
+ 
+nav {
+ padding:20px;
+}
+ 
+/* Linkerkant van de foto tonen op mobiel */
+.hero img {
+ object-position: left center;
+}
+ 
 .hero-text {
  top:40%;
  left:50%;
  transform:translate(-50%, -50%);
 }
-
+ 
 .hero-text h1 {
  font-size:38px;
 }
-
+ 
+/* Blauwe balk: groter, scrollt mee onder de hero */
 .over {
  flex-direction:column;
  height:auto;
- position:relative;
+ position:relative;   /* los van hero, schuift naar beneden */
+ padding:28px 0 36px;
 }
-
+ 
 .over-left {
  display:none;
 }
-
+ 
+/* Tekst blok: volle breedte, groter font */
 .over-right {
  width:100%;
- padding:40px;
+ padding:24px 28px;
+ font-size:16px;      /* groter dan de 13px op desktop */
 }
-
-nav {
- padding:20px;
+ 
+.over-right p {
+ line-height:2;
+ max-width:100%;
 }
-
-}
+ 
 
 </style>
 </head>
