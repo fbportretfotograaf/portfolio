@@ -2,6 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fleur Bakker Fotografie</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -10,264 +11,258 @@
 
 /* BASE */
 body {
- margin:0;
- font-family:'Inter', sans-serif;
- background:black;
- color:white;
- overflow-x:hidden;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
 }
 
-/* NAV MENU GLASS */
+/* NAV */
 nav {
- display:flex;
- justify-content:space-between;
- align-items:center;
- padding:35px 80px;
- position:fixed;
- width:100%;
- z-index:1000;
- box-sizing:border-box;
-
- background:rgba(0,0,0,0.0);         /* menu navigatiebalk transparant gemaakt*/
- backdrop-filter: blur(0px);
- border-bottom:0px solid rgba();
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.0);
+  backdrop-filter: blur(0px);
+  border-bottom: 0px solid rgba(0,0,0,0);
 }
 
 nav a {
- color:white;
- margin-left:22px;
- text-decoration:none;
- font-size:8px;
- letter-spacing:2px;
- text-transform:uppercase;
- transition:0.3s;
+  color: white;
+  margin-left: 22px;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
 }
 
 nav a:hover {
- color:#f0ff1f;
+  color: #f0ff1f;
 }
 
-/* HERO css */
-
+/* HERO */
 .hero {
   position: relative;
   height: 100vh;
   width: 100%;
   overflow: hidden;
-
-  /* Desktop afbeelding */
   background-image: url('hero.jpg');
   background-size: cover;
   background-position: center;
 }
 
-/* Mobile afbeelding */
+/* FIX 1: mobile afbeelding staat nu in eigen aparte media query blok */
 @media (max-width: 900px) {
   .hero {
     background-image: url('heromob.jpg');
-    background-position: top center; /* optioneel: pas aan op je foto */
+    background-position: top center;
   }
 }
 
-
 /* DARK OVERLAY */
 .hero::after {
- content:"";
- position:absolute;
- top:0;
- left:0;
- width:100%;
- height:100%;
- background:linear-gradient(
-  to bottom,
-  rgba(0,0,0,0.15),
-  rgba(0,0,0,0.15)
- );
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15),
+    rgba(0,0,0,0.15)
+  );
 }
 
-/* HERO TEXT H1 */
+/* HERO TEXT */
 .hero-text {
- position:absolute;
- top:30%;
- left:73%;
- transform:translate(-50%, -50%);
- text-align:center;
- z-index:2;
+  position: absolute;
+  top: 30%;
+  left: 73%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
 }
 
 .hero-text h1 {
- font-family:'Playfair Display', serif;
- font-size:56px;
- margin:0;
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin: 0;
 }
 
 /* SUBTEXT ANIMATIE */
 .hero-text p {
- font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
- font-size:18px;
- margin-top:10px;
-
- opacity:0;
- filter:blur(10px);
- transform:translateY(10px);
- transition:0.5s ease;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0;
+  filter: blur(10px);
+  transform: translateY(10px);
+  transition: 0.5s ease;
 }
 
 .hero-text p.show {
- opacity:1;
- filter:blur(0);
- transform:translateY(0);
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
 }
 
-/* OVER SECTION (Blauwe textbalk) */
+/* OVER SECTION (Blauwe tekstbalk) */
 .over {
- position:absolute;
- bottom:0;
- left:0;
- width:100%;
-
- display:flex;
-
- background:rgba(0, 31, 120, 0.35);   (achter de nul komt de transparantie, hoe lager hoe transparanter)
- backdrop-filter: blur(4px);
-
- border-top:1px solid rgba(255,255,255,0.1);
-
- padding:16px 0;          /* ruimte boven/onder Blauwe Tekst balk */
- box-sizing:border-box;   /* voorkomt overflow */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background: rgba(0, 31, 120, 0.40);
+  backdrop-filter: blur(3px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 16px 0;
+  box-sizing: border-box;
 }
 
 /* LEFT TITLE */
 .over-left {
- width:30%;
- display:flex;
- align-items:center;
- justify-content:flex-start;
- padding-left:80px;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 80px;
 }
 
 .over-left h2 {
- font-family:'Playfair Display', serif;
- font-size:42px;             
- color:#f0ff1f;
- margin:0;
- transition:0.2s ease;
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: #f0ff1f;
+  margin: 0;
+  transition: 0.2s ease;
 }
 
 .over-left h2:hover {
- color:#f0ff1f;
- transform:translateX(5px);
+  color: #f0ff1f;
+  transform: translateX(5px);
 }
 
 /* RIGHT TEXT */
 .over-right {
-  font-size: 8px;  /* font maat blauw tekstblok default is ~16px */
- width:60%;    /*start tekst in blauw teksblok */
- display:flex;
- flex-direction:column;
- justify-content:center;
- padding:5px 66px 5px 34px;   PADDING AANGEPAST VAN 40 80 40 NAAR 10 70 10 boven - links - onder - rechts
+  font-family: 'Playfair Display', serif;
+  font-size: 10px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5px 66px 5px 34px;
 }
 
 .over-right p {
- line-height:1.9; 
- max-width:690px;      
- transition:0.2s ease;
+  line-height: 1.9;
+  max-width: 690px;
+  transition: 0.2s ease;
 }
 
-.over-right p:hover {
- color:                  Tekst hoover kan aangepast door hierachter de code met hashtag te zetten
+.over-right .subtitle {
+  font-style: italic;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
 }
 
 /* FADE */
 .fade {
- opacity:0;
- transform:translateY(40px);
- transition:1.5s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1.5s ease;
 }
 
 .fade.show {
- opacity:1;
- transform:translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* MOBILE */
-@media (max-width:900px){
+@media (max-width: 900px) {
 
-.hero-text {
- top:45%;
- left:50%;
- transform:translate(-50%, -50%);
-}
+  nav {
+    padding: 20px;
+  }
 
-.hero-text h1 {
- font-size:40px;
-}
+  .hero-text {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-.over {
- flex-direction:column;
- height:auto;
- position:relative;
-}
+  .hero-text h1 {
+    font-size: 40px;
+  }
 
-.over-left {
- display:none;
-}
+  .over {
+    position: relative;
+    flex-direction: column;
+    height: auto;         /* past zich aan aan de inhoud */
+    min-height: unset;
+  }
 
-.over-right {
- width:100%;
- padding:20px;
-}
+  .over-left {
+    display: none;
+  }
 
-nav {
- padding:20px;
-}
+  .over-right {
+    width: 100%;
+    padding: 20px;
+    font-size: 13px;      /* leesbare grootte op mobiel */
+    box-sizing: border-box;
+  }
 
 }
 
 </style>
 </head>
-
 <body>
 
 <!-- NAV -->
 <nav>
-<div>FBF</div>
-<div>
-<a href="portfolio.html">Portfolio</a>
-<a href="over.html">Over mij</a>
-<a href="contact.html">Contact</a>
-</div>
+  <div>FBF</div>
+  <div>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="over.html">Over mij</a>
+    <a href="contact.html">Contact</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-
-<div class="hero-text">
-<h1>Fleur Bakker Fotografie</h1>
-<p id="subtext">Portretfotografie die bij jou past!</p>
-</div>
-
+  <div class="hero-text">
+    <h1>Fleur Bakker Fotografie</h1>
+    <p id="subtext">Portretfotografie die bij jou past!</p>
+  </div>
 </section>
 
-<!-- OVER (BELANGRIJK: BUITEN HERO) -->
+<!-- OVER -->
 <section class="over fade">
 
-<div class="over-left">
-  <h2>Jezelf, op je mooist!</h2>
-</div>
+  <div class="over-left">
+    <h2>Jezelf, op je mooist!</h2>
+  </div>
 
-<div class="over-right">
-
-<p>
-<strong><em><h3>Portretfotograaf Provincie Utrecht</h3></em></strong>
-Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien. 
-Ik werk met gevoel, licht en sfeer – maar mijn fotografie gaat verder dan dat.
-Niet alleen een stralende glimlach, maar juist ook die ene blik waarin je persoonlijkheid naar voren komt, leg ik vast. 
-Ik heb oog voor de mens en dát maakt elk portret persoonlijk en eigen.
-Als portretfotograaf help ik jou om jezelf op je mooist terug te zien!
-</p>
-</div>
+  <div class="over-right">
+    <!-- FIX 3: <h3> mag niet binnen <p> staan; nu als eigen <span> met klasse -->
+    <span class="subtitle">Portretfotograaf Provincie Utrecht</span>
+    <p>
+      Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien.
+      Ik werk met gevoel, licht en sfeer – maar mijn fotografie gaat verder dan dat.
+      Niet alleen een stralende glimlach, maar juist ook die ene blik waarin je persoonlijkheid naar voren komt, leg ik vast.
+      Ik heb oog voor de mens en dát maakt elk portret persoonlijk en eigen.
+      Als portretfotograaf help ik jou om jezelf op je mooist terug te zien!
+    </p>
+  </div>
 
 </section>
 
@@ -275,21 +270,21 @@ Als portretfotograaf help ik jou om jezelf op je mooist terug te zien!
 <script>
 
 /* SUBTEXT DELAY */
-window.addEventListener("load", function(){
- setTimeout(() => {
-  document.getElementById("subtext").classList.add("show");
- }, 2000);
+window.addEventListener("load", function() {
+  setTimeout(() => {
+    document.getElementById("subtext").classList.add("show");
+  }, 2000);
 });
 
 /* FADE IN */
 const faders = document.querySelectorAll('.fade');
 
 const observer = new IntersectionObserver(entries => {
- entries.forEach(entry => {
-  if(entry.isIntersecting){
-   entry.target.classList.add('show');
-  }
- });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
 });
 
 faders.forEach(el => observer.observe(el));
