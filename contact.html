@@ -10,35 +10,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
 
   <style>
-  
-    html, body {
+
+
+:root {
+  --card-border: rgba(245, 209, 48, 0.18);
+  --card-bg: rgba(0, 31, 120, 0.38);
+  --yellow: #f0ff1f;
+  --white: #ffffff;
+  --white-40: rgba(255, 255, 255, 0.4);
+  --bg: #0b0f1c;
+  --font-body: 'Inter', sans-serif;
+  --radius: 6px;
+  --ease: 0.3s ease;
+  --nav-h: 68px;
+}
+
+     html, body {
       font-family: 'Inter', sans-serif;
       color: white;
       overflow-x: hidden;
       background: linear-gradient(to bottom, #000000 0%, #040a1e 40%, #0b1f5c 100%);
       background-attachment: fixed;
       min-height: 100vh;
-
-    :root {
-      --bg: #0b0f1c;
-      --bg2: #0e1220;
-      --yellow: #f0ff1f;
-      --yellow-dim: rgba(245, 209, 48, 0.15);
-      --white: #ffffff;
-      --white-40: rgba(255, 255, 255, 0.4);
-      --white-10: rgba(255, 255, 255, 0.06);
-      --card-bg: rgba(0, 31, 120, 0.38);
-      --card-border: rgba(245, 209, 48, 0.18);
-      --nav-h: 68px;
-      --font-body: 'Inter', sans-serif;
-      --radius: 6px;
-      --ease: 0.3s ease;
     }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
+   
+     body {
       background-color: var(--bg);
       background-image: repeating-linear-gradient(
         135deg,
