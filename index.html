@@ -126,6 +126,7 @@ nav a:hover {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding: 16px 0;
   box-sizing: border-box;
+  z-index: 3; /* boven de ::after overlay */
 }
 
 /* LEFT TITLE */
@@ -151,9 +152,6 @@ nav a:hover {
 }
 
 /* RIGHT TEXT */
-
-
-  
 .over-right {
   font-family: 'Playfair Display', serif;
   opacity: 0.88;
@@ -207,14 +205,14 @@ nav a:hover {
     font-size: 36px;
   }
 
+  /* WIJZIGING 2: position:relative en min-height:unset verwijderd
+     .over blijft position:absolute zodat hij op de foto blijft hangen */
   .over {
-  background: rgba(0, 31, 120, 0.40);
-  backdrop-filter: blur(3px);
-  border-top: 1px solid rgba(255,255,255,0.1);
-    position: relative;
+    background: rgba(0, 31, 120, 0.40);
+    backdrop-filter: blur(3px);
+    border-top: 1px solid rgba(255,255,255,0.1);
     flex-direction: column;
-    height: auto;         /* past zich aan aan de inhoud */
-    min-height: unset;
+    height: auto;
   }
 
   .over-left {
@@ -224,7 +222,7 @@ nav a:hover {
   .over-right {
     width: 100%;
     padding: 15px;
-    font-size: 13px;      /* leesbare grootte op mobiel */
+    font-size: 13px;
     box-sizing: border-box;
   }
 
@@ -244,32 +242,33 @@ nav a:hover {
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- WIJZIGING 1: .over nu BINNEN .hero geplaatst -->
+<!-- zodat position:absolute bottom:0 werkt ten opzichte van de foto -->
 <section class="hero">
+
   <div class="hero-text">
     <h1>Fleur Bakker Fotografie</h1>
     <p id="subtext">Portretfotografie die bij jou past!</p>
   </div>
-</section>
 
-<!-- OVER -->
-<section class="over fade">
+  <section class="over fade">
 
-  <div class="over-left">
-    <h2>Jezelf, op je mooist!</h2>
-  </div>
+    <div class="over-left">
+      <h2>Jezelf, op je mooist!</h2>
+    </div>
 
-  <div class="over-right">
-  
-    <span class="subtitle">Portretfotograaf Provincie Utrecht</span>
-    <p>
-      Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien.
-      Ik werk met gevoel, licht en sfeer – maar mijn fotografie gaat verder dan dat.
-      Niet alleen een stralende glimlach, maar juist ook die ene blik waarin je persoonlijkheid naar voren komt, leg ik vast.
-      Ik heb oog voor de mens en dát maakt elk portret persoonlijk en eigen.
-      Als portretfotograaf help ik jou om jezelf op je mooist terug te zien!
-    </p>
-  </div>
+    <div class="over-right">
+      <span class="subtitle">Portretfotograaf Provincie Utrecht</span>
+      <p>
+        Oog voor detail is iets wat mij vaak wordt teruggegeven wanneer ik mijn werk laat zien.
+        Ik werk met gevoel, licht en sfeer – maar mijn fotografie gaat verder dan dat.
+        Niet alleen een stralende glimlach, maar juist ook die ene blik waarin je persoonlijkheid naar voren komt, leg ik vast.
+        Ik heb oog voor de mens en dát maakt elk portret persoonlijk en eigen.
+        Als portretfotograaf help ik jou om jezelf op je mooist terug te zien!
+      </p>
+    </div>
+
+  </section>
 
 </section>
 
