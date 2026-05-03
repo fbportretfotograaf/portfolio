@@ -3,11 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | Fleurbakker</title>
+  <title>Contact | Fleur Bakker Fotografie</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── CSS VARIABELEN — nu correct buiten html/body ── */
+    :root {
+      --yellow:    #f0ff1f;
+      --white:     #ffffff;
+      --white-40:  rgba(255, 255, 255, 0.4);
+      --card-bg:   rgba(0, 31, 120, 0.35);
+      --card-border: rgba(240, 255, 31, 0.18);
+      --radius:    4px;
+      --ease:      0.3s ease;
+      --font-body: 'Inter', sans-serif;
+      --bg:        #000000;
+    }
 
     html, body {
       font-family: 'Inter', sans-serif;
@@ -18,117 +31,80 @@
       min-height: 100vh;
     }
 
-<style>
-
-/* BASE */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: black;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 35px 80px;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.0);
-  backdrop-filter: blur(0px);
-  border-bottom: 0px solid rgba(0,0,0,0);
-}
-
-nav a {
-  color: white;
-  margin-left: 22px;
-  text-decoration: none;
-  font-size: 8px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #f0ff1f;
-}
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
+    /* NAV — exact gelijk aan index.html */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 35px 80px;
+      position: fixed;
       width: 100%;
-      height: 630px;
-      overflow: hidden;
-    }
-    .hero img {
-      width: 0%;
-      height: 0%;
-      object-fit: cover;
-      object-position: center 0%;
-      display: block;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
+      z-index: 1000;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.0);
+      backdrop-filter: blur(0px);
+      border-bottom: 0px solid rgba(0,0,0,0);
     }
 
-    /* ── PAGE TITLE ── */
-    .page-title {
+    nav a {
+      color: white;
+      margin-left: 22px;
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #f0ff1f;
+    }
+
+    /* FBF logo — zelfde als index.html, geen marge links */
+    nav > a:first-child {
+      margin-left: 0;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* ── PAGE ── */
+    .page {
+      padding-bottom: 60px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* ── PAGE TITLE — class direct op h1 zodat browser scaling niet optelt ── */
+    h1.page-title {
       text-align: center;
       padding: 25px 20px 10px;
       margin-top: 120px;
       font-family: 'Playfair Display', serif;
-      font-size: 64px;
+      font-size: 64px;           /* zelfde als over.html */
       font-weight: 500;
       letter-spacing: 2px;
       color: rgb(240, 255, 31);
     }
 
-    .title-rule {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 18px;
-    }
 
-    .title-rule span {
-      display: block;
-      height: 2px;
-      width: 40px;
-      background: var(--yellow);
-      border-radius: 2px;
-    }
-
-    .title-rule i {
-      width: 6px;
-      height: 6px;
-      background: var(--yellow);
-      border-radius: 50%;
-      display: block;
-      flex-shrink: 0;
-    }
-
-    /* ── Intro ── */
+    /* ── Intro — zelfde font/stijl als .over-right op homepage ── */
     .intro {
       text-align: center;
-      color: var(--white-40);
-      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
       color: white;
-      font-weight: 500;
+      font-weight: 400;
       opacity: 0.88;
-      line-height: 1.8;
-      max-width: 620px;
+      line-height: 1.9;
+      max-width: 580px;
       margin: 0 auto 36px;
     }
-
 
     /* ── Info cards ── */
     .info-grid {
@@ -145,7 +121,7 @@ nav a:hover {
       padding: 28px 26px 24px;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(4px);
     }
 
     .card::after {
@@ -158,8 +134,9 @@ nav a:hover {
     }
 
     .card h3 {
-      font-weight: 400;
-      font-size: 11px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-size: 14px;
       color: var(--yellow);
       letter-spacing: .05em;
       margin-bottom: 13px;
@@ -210,7 +187,7 @@ nav a:hover {
       padding: 36px 36px 32px;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(8px);
+      backdrop-filter: blur(4px);
     }
 
     .form-card::after {
@@ -253,20 +230,20 @@ nav a:hover {
     form textarea::placeholder { color: var(--white-40); }
 
     form select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f5d130' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23f0ff1f' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
       padding-right: 38px;
       cursor: pointer;
     }
 
-    form select option { background: #0e1220; color: var(--white); }
+    form select option { background: #040a1e; color: var(--white); }
 
     form input:focus,
     form select:focus,
     form textarea:focus {
-      border-color: rgba(245,209,48,.45);
-      background: rgba(245,209,48,.04);
+      border-color: rgba(240,255,31,.45);
+      background: rgba(240,255,31,.04);
     }
 
     form textarea { resize: vertical; min-height: 120px; line-height: 1.7; }
@@ -323,27 +300,24 @@ nav a:hover {
       letter-spacing: .06em;
     }
 
-    /* ═══════════════════════════
-       MOBILE
-    ═══════════════════════════ */
+    /* ── MOBILE ── */
     @media (max-width: 900px) {
-      nav { padding: 20px; }
+      nav { padding: 10px; }
+      .container { padding: 0 20px; }
+      h1.page-title { font-size: 38px; margin-top: 80px; }
       .info-grid { grid-template-columns: 1fr; gap: 14px; }
       .form-card { padding: 24px 18px 20px; }
       .form-row { grid-template-columns: 1fr; gap: 14px; }
       .btn-submit { width: 100%; text-align: center; }
     }
 
-    @media (max-width: 420px) {
-      .page-title h1 { font-size: 2.1rem; }
-    }
   </style>
 </head>
 <body>
 
-  <!-- ══ NAVBAR — zelfde structuur als homepage ══ -->
+  <!-- NAV — exact gelijk aan index.html -->
   <nav>
-    <a href="index.html" class="nav-logo">FBF</a>
+    <a href="index.html">FBF</a>
     <div>
       <a href="portfolio.html">Portfolio</a>
       <a href="over.html">Over mij</a>
@@ -351,19 +325,11 @@ nav a:hover {
     </div>
   </nav>
 
-  <!-- ══ PAGE ══ -->
   <main class="page">
     <div class="container">
 
-      <!-- Titel -->
-      <div class="page-title">
-        <h1>Contact</h1>
-        <div class="title-rule">
-          <span></span>
-          <i></i>
-          <span></span>
-        </div>
-      </div>
+      <!-- TITEL — class direct op h1, zelfde als over.html -->
+      <h1 class="page-title">Contact</h1>
 
       <!-- Intro -->
       <p class="intro">
@@ -400,9 +366,7 @@ nav a:hover {
       <div class="form-card">
         <form id="contactForm" method="POST" action="https://formspree.io/f/YOUR-ID">
 
-          <!-- Honeypot -->
           <input type="text" name="company" id="company" tabindex="-1" autocomplete="off" />
-          <!-- Tijdcheck -->
           <input type="hidden" name="form_time" id="form_time" />
 
           <div class="form-row">
@@ -431,13 +395,10 @@ nav a:hover {
 
   <footer>©2026 Copyrights</footer>
 
-  <!-- reCAPTCHA v3 -->
   <script src="https://www.google.com/recaptcha/api.js?render=YOUR_SITE_KEY"></script>
   <script>
-    /* ── Tijdstempel ── */
     document.getElementById('form_time').value = Date.now();
 
-    /* ── Formulier submit ── */
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       const honeypot  = document.getElementById('company').value;
       const startTime = parseInt(document.getElementById('form_time').value, 10);
@@ -467,5 +428,3 @@ nav a:hover {
 
 </body>
 </html>
-
-
