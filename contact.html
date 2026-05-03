@@ -1,31 +1,15 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Contact | Fleur Bakker Fotografie</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | Fleurbakker</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-:root {
-  --card-border: rgba(245, 209, 48, 0.18);
-  --card-bg: rgba(0, 31, 120, 0.38);
-  --yellow: #f0ff1f;
-  --white: #ffffff;
-  --white-40: rgba(255, 255, 255, 0.4);
-  --bg: #0b0f1c;
-  --font-body: 'Inter', sans-serif;
-  --radius: 6px;
-  --ease: 0.3s ease;
-  --nav-h: 68px;
-}
-
-     html, body {
+    html, body {
       font-family: 'Inter', sans-serif;
       color: white;
       overflow-x: hidden;
@@ -33,100 +17,78 @@
       background-attachment: fixed;
       min-height: 100vh;
     }
-   
-     body {
-      background-color: var(--bg);
-      background-image: repeating-linear-gradient(
-        135deg,
-        rgba(255,255,255,.012) 0px,
-        rgba(255,255,255,.012) 1px,
-        transparent 1px,
-        transparent 60px
-      );
-      color: var(--white);
-    }
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 500;
-    }
+<style>
 
-    /* ═══════════════════════════
-       NAV — zelfde als homepage
-    ═══════════════════════════ */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 35px 80px;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      box-sizing: border-box;
-      background: rgba(0, 0, 0, 0.0);
-      backdrop-filter: blur(0px);
-      border-bottom: 0px solid rgba(0,0,0,0);
-    }
+/* BASE */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
 
-    nav a {
-      color: white;
-      margin-left: 22px;
-      text-decoration: none;
-      font-size: 8px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.0);
+  backdrop-filter: blur(0px);
+  border-bottom: 0px solid rgba(0,0,0,0);
+}
 
-    nav a:hover,
-    nav a.active {
-      color: #f0ff1f;
-      text-decoration: none;
-    }
-
-    /* FBF logo — geen marge links, altijd wit */
-    nav .nav-logo {
-      margin-left: 0;
-      color: white;
-      font-size: 14px;
-      letter-spacing: 3px;
-    }
-
-    nav .nav-logo:hover {
-      color: #f0ff1f;
-    }
-
-    /* ═══════════════════════════
-       PAGE CONTENT
-    ═══════════════════════════ */
-    .page {
-      padding-top: calc(var(--nav-h) + 64px);
-      padding-bottom: 60px;
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-
-    .container {
-      max-width: 930px;
-      margin: 0 auto;
-    }
-
-    /* ── Page title ── */
-    .page-title {
-      text-align: center;
-      margin-bottom: 48px;
-    }
-
-  .page-title { 
-  text-align: center;
-  padding: 20px 10px 10px;
-  margin-top: 100px; /* ← deze toevoegen */
-  font-family: 'Playfair Display', serif;
-  font-size: 34px;
-  font-weight: 500;
+nav a {
+  color: white;
+  margin-left: 22px;
+  text-decoration: none;
+  font-size: 8px;
   letter-spacing: 2px;
-  color: rgb(240, 255, 31);
+  text-transform: uppercase;
+  transition: 0.3s;
+}
 
+nav a:hover {
+  color: #f0ff1f;
+}
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 630px;
+      overflow: hidden;
+    }
+    .hero img {
+      width: 0%;
+      height: 0%;
+      object-fit: cover;
+      object-position: center 0%;
+      display: block;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
+    }
+
+    /* ── PAGE TITLE ── */
+    .page-title { 
+      text-align: center;
+      padding: 25px 20px 10px;
+      margin-top: 120px; 
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      color: rgb(240, 255, 31);
     }
 
     .title-rule {
