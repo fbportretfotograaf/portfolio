@@ -3,12 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Over mij | Fleurbakker</title>
+  <title>Over mij | Fleur Bakker Fotografie</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* BASE */
     html, body {
       font-family: 'Inter', sans-serif;
       color: white;
@@ -18,72 +21,53 @@
       min-height: 100vh;
     }
 
-<style>
-
-/* BASE */
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-  background: black;
-  color: white;
-  overflow-x: hidden;
-}
-
-/* NAV */
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 35px 80px;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-  box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.0);
-  backdrop-filter: blur(0px);
-  border-bottom: 0px solid rgba(0,0,0,0);
-}
-
-nav a {
-  color: white;
-  margin-left: 22px;
-  text-decoration: none;
-  font-size: 8px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #f0ff1f;
-}
-
-    /* ── HERO ── */
-    .hero {
-      position: relative;
+    /* NAV — exact gelijk aan index.html */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 35px 80px;
+      position: fixed;
       width: 100%;
-      height: 630px;
-      overflow: hidden;
+      z-index: 1000;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.0);
+      backdrop-filter: blur(0px);
+      border-bottom: 0px solid rgba(0,0,0,0);
     }
-    .hero img {
-      width: 0%;
-      height: 0%;
-      object-fit: cover;
-      object-position: center 0%;
-      display: block;
+
+    nav a {
+      color: white;
+      margin-left: 22px;
+      text-decoration: none;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.3s;
     }
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.5) 100%);
+
+    nav a:hover,
+    nav a.active {
+      color: #f0ff1f;
+    }
+
+    /* FBF logo — geen marge links */
+    nav .logo {
+      margin-left: 0;
+      color: white;
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+
+    nav .logo:hover {
+      color: #f0ff1f;
     }
 
     /* ── PAGE TITLE ── */
-    .page-title { 
+    .page-title {
       text-align: center;
       padding: 25px 20px 10px;
-      margin-top: 120px; 
+      margin-top: 120px;
       font-family: 'Playfair Display', serif;
       font-size: 64px;
       font-weight: 500;
@@ -105,6 +89,7 @@ nav a:hover {
     .over-text {
       flex: 1;
     }
+
     .over-text h2 {
       font-family: 'Playfair Display', serif;
       font-size: 20px;
@@ -113,6 +98,7 @@ nav a:hover {
       margin-bottom: 13px;
       line-height: 1.30;
     }
+
     .over-text p {
       font-size: 11px;
       font-weight: 400;
@@ -121,6 +107,7 @@ nav a:hover {
       margin-bottom: 13px;
       color: white;
     }
+
     .over-text p:last-child { margin-bottom: 0; }
 
     /* Photo block */
@@ -128,6 +115,7 @@ nav a:hover {
       flex-shrink: 0;
       width: 200px;
     }
+
     .over-photo img {
       width: 100%;
       aspect-ratio: 2 / 3;
@@ -157,29 +145,46 @@ nav a:hover {
     img { -webkit-user-drag: none; user-drag: none; pointer-events: none; }
     body { -webkit-user-select: none; user-select: none; }
 
-    /* ── MOBILE ── */
+    /* ── MOBILE — exact gelijk aan index.html ── */
     @media (max-width: 900px) {
-      nav { flex-direction: column; gap: 10px; align-items: center; }
-      .nav-links { flex-wrap: wrap; justify-content: center; }
-      .nav-links a { margin: 4px 10px; }
-      .hero { height: 280px; }
-      .page-title { font-size: 32px; padding-top: 40px; }
-   
+
+      nav {
+        padding: 10px;
+      }
+
+      .page-title {
+        font-size: 32px;
+        padding-top: 40px;
+        margin-top: 80px;
+      }
+
+      .over-section {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px 20px 60px;
+      }
+
+      .over-photo {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+      }
 
     }
+
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- NAV — exact gelijk aan index.html -->
   <nav>
-    <a class="nav-logo" href="index.html">FBF</a>
-    <div class="nav-links">
+    <div>FBF</div>
+    <div>
       <a href="portfolio.html">Portfolio</a>
       <a href="over.html" class="active">Over mij</a>
       <a href="contact.html">Contact</a>
+    </div>
   </nav>
-
 
   <!-- PAGE TITLE -->
   <h1 class="page-title fade">Over mij</h1>
@@ -187,21 +192,21 @@ nav a:hover {
   <!-- CONTENT -->
   <section class="over-section">
 
-  <!-- TEXT LINKS -->
-  <div class="over-text fade">
-    <h2>Plezier, vertrouwen en aandacht tijdens de fotoshoot</h2>
-    <p>Ik ben een portretfotograaf die haar vak met plezier en aandacht uitvoert. Met een achtergrond in communicatie heb ik een scherp oog voor wat beelden uitstralen en hoe iemand echt overkomt.</p>
-    <p>Mijn werk begint niet bij het maken van de foto, maar bij het begrijpen van wie je bent en welk resultaat je wilt zien. Daarom neem ik altijd de tijd voor een kennismakingsgesprek en een goede voorbereiding.</p>
-    <p>Tijdens de fotoshoot begeleid ik je op een ontspannen en natuurlijke manier. Als jij je lekker voet is dat dat ook terug te zien op de foto's.</p>
-    <p>Mijn stijl is spontaan en persoonlijk waarbij ik jou jezelf laat zijn. Zo ontstaat een fotoschoot die niet alleen sterke beelden oplevert, maar ook een fijne en waardevolle ervaring biedt. </p>
-  </div>
+    <!-- TEXT LINKS -->
+    <div class="over-text fade">
+      <h2>Plezier, vertrouwen en aandacht tijdens de fotoshoot</h2>
+      <p>Ik ben een portretfotograaf die haar vak met plezier en aandacht uitvoert. Met een achtergrond in communicatie heb ik een scherp oog voor wat beelden uitstralen en hoe iemand echt overkomt.</p>
+      <p>Mijn werk begint niet bij het maken van de foto, maar bij het begrijpen van wie je bent en welk resultaat je wilt zien. Daarom neem ik altijd de tijd voor een kennismakingsgesprek en een goede voorbereiding.</p>
+      <p>Tijdens de fotoshoot begeleid ik je op een ontspannen en natuurlijke manier. Als jij je lekker voelt is dat ook terug te zien op de foto's.</p>
+      <p>Mijn stijl is spontaan en persoonlijk waarbij ik jou jezelf laat zijn. Zo ontstaat een fotoshoot die niet alleen sterke beelden oplevert, maar ook een fijne en waardevolle ervaring biedt.</p>
+    </div>
 
-  <!-- FOTO RECHTS -->
-  <div class="over-photo fade">
-    <img src="Fotofotograaf.jpg" alt="Portret fotograaf" />
-  </div>
+    <!-- FOTO RECHTS -->
+    <div class="over-photo fade">
+      <img src="Fotofotograaf.jpg" alt="Portret fotograaf" />
+    </div>
 
-</section>
+  </section>
 
   <footer>©2026 Copyrights</footer>
 
