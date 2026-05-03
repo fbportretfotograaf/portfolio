@@ -18,50 +18,45 @@
       min-height: 100vh;
     }
 
-    /* ═══════════════════════════
-       NAV — zelfde als homepage
-    ═══════════════════════════ */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 35px 80px;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      box-sizing: border-box;
-      background: rgba(0, 0, 0, 0.0);
-      backdrop-filter: blur(0px);
-      border-bottom: 0px solid rgba(0,0,0,0);
-    }
+<style>
 
-    nav a {
-      color: white;
-      margin-left: 22px;
-      text-decoration: none;
-      font-size: 8px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
+/* BASE */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: black;
+  color: white;
+  overflow-x: hidden;
+}
 
-    nav a:hover,
-    nav a.active {
-      color: #f0ff1f;
-      text-decoration: none;
-    }
+/* NAV */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 80px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.0);
+  backdrop-filter: blur(0px);
+  border-bottom: 0px solid rgba(0,0,0,0);
+}
 
-    /* FBF logo — geen marge links, altijd wit */
-    nav .nav-logo {
-      margin-left: 0;
-      color: white;
-      font-size: 14px;
-      letter-spacing: 3px;
-    }
+nav a {
+  color: white;
+  margin-left: 22px;
+  text-decoration: none;
+  font-size: 8px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
 
-    nav .nav-logo:hover {
-      color: #f0ff1f;
-    }
+nav a:hover {
+  color: #f0ff1f;
+}
 
     /* ── HERO ── */
     .hero {
