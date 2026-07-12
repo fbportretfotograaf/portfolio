@@ -131,7 +131,7 @@
     .img-wrap {
       flex-shrink: 0;
       width: 600px;          /* fallback, wordt overschreven door JS */
-      aspect-ratio: 2 / 3;
+      aspect-ratio: 3 / 4;
       position: relative;
       overflow: hidden;
       cursor: pointer;
@@ -159,7 +159,7 @@
     /* Liggende foto's: alleen bij klikken volledig/breed tonen, ongecropt */
     .img-wrap.is-landscape.is-expanded {
       width: 860px !important;   /* !important: JS zet ook een inline width */
-      aspect-ratio: 3 / 2;
+      aspect-ratio: 3 / 4;
       z-index: 5;
     }
 
@@ -359,7 +359,7 @@
   <script>
     const TRACK_IDS = ['track-1', 'track-2', 'track-3', 'track-4'];
     const GAP     = 8;
-    const VISIBLE = 4;
+    const VISIBLE = 3;
 
     const state = {};
     TRACK_IDS.forEach(id => state[id] = 0);
