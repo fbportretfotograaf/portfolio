@@ -156,14 +156,14 @@
 
     .img-wrap:hover::after { opacity: 0; }
 
-    /* Liggende foto's: bij hover breder tonen, ongecropt */
-    .img-wrap.is-landscape:hover {
+    /* Liggende foto's: alleen bij klikken volledig/breed tonen, ongecropt */
+    .img-wrap.is-landscape.is-expanded {
       width: 860px !important;   /* !important: JS zet ook een inline width */
       aspect-ratio: 3 / 2;
       z-index: 5;
     }
 
-    .img-wrap.is-landscape:hover img {
+    .img-wrap.is-landscape.is-expanded img {
       object-fit: contain;
       background: #000;
     }
@@ -424,12 +424,29 @@
 
   <script>
     document.querySelectorAll('.img-wrap img').forEach(img => {
+      const wrap = img.closest('.img-wrap');
+
       function checkOrientation() {
         if (img.naturalWidth > img.naturalHeight) {
-          img.closest('.img-wrap').classList.add('is-landscape');
+          wrap.classList.add('is-landscape');
         }
       }
       img.complete ? checkOrientation() : img.addEventListener('load', checkOrientation);
+
+      wrap.addEventListener('click', () => {
+        if (!wrap.classList.contains('is-landscape')) return;
+
+        const alreadyExpanded = wrap.classList.contains('is-expanded');
+
+        // sluit eventueel andere open foto's in dezelfde slider
+        wrap.closest('.slider-track').querySelectorAll('.img-wrap.is-expanded').forEach(el => {
+          el.classList.remove('is-expanded');
+        });
+
+        if (!alreadyExpanded) {
+          wrap.classList.add('is-expanded');
+        }
+      });
     });
   </script>
 
