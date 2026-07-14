@@ -168,26 +168,11 @@
       background: #000;
     }
 
-    /* ── PIJLEN ── */
-    .slider-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent;
-      border: none;
-      color: #f0ff1f;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      z-index: 10;
-      font-size: 30px;
-      line-height: 1;
-      transition: opacity 0.2s;
-      user-select: none;
-      padding: 0;
+.arrow-icon {
+  width: 14px;             /* grootte van de hoek */
+  height: 14px;
+  border-right: 6x solid #f0ff1f;   /* 4px = dikte van de lijn */
+  border-top: 6px solid #f0ff1f;
     }
 
     .slider-btn:hover { opacity: 0.45; }
