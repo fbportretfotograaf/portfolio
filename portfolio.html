@@ -131,7 +131,7 @@
     .img-wrap {
       flex-shrink: 0;
       width: 600px;          /* fallback, wordt overschreven door JS */
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 2 / 3;
       position: relative;
       overflow: hidden;
       cursor: pointer;
@@ -159,7 +159,7 @@
     /* Liggende foto's: alleen bij klikken volledig/breed tonen, ongecropt */
     .img-wrap.is-landscape.is-expanded {
       width: 860px !important;   /* !important: JS zet ook een inline width */
-      aspect-ratio: 3 / 4;
+      aspect-ratio: 3 / 2;
       z-index: 5;
     }
 
@@ -168,16 +168,42 @@
       background: #000;
     }
 
-.arrow-icon {
-  width: 14px;             /* grootte van de hoek */
-  height: 14px;
-  border-right: 6px solid #f0ff1f;   /* 4px = dikte van de lijn */
-  border-top: 6px solid #f0ff1f;
+    /* ── PIJLEN ── */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: #f0ff1f;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      font-size: 30px;
+      line-height: 1;
+      transition: opacity 0.2s;
+      user-select: none;
+      padding: 0;
     }
 
     .slider-btn:hover { opacity: 0.45; }
     .slider-btn.prev { left: 0; }
     .slider-btn.next { right: 0; }
+
+    .arrow-icon {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-right: 4px solid #f0ff1f;
+      border-top: 4px solid #f0ff1f;
+    }
+
+    .slider-btn.prev .arrow-icon { transform: rotate(-135deg); }
+    .slider-btn.next .arrow-icon { transform: rotate(45deg); }
 
     /* ── FADE IN ── */
     .fade {
@@ -271,8 +297,8 @@
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_a6ed475f8f5c48b8ae5fefeb7103246a~mv2.jpg/v1/fill/w_600,h_860,fp_0.59_0.35,q_90,enc_avif,quality_auto/be7317_a6ed475f8f5c48b8ae5fefeb7103246a~mv2.jpg" alt="Aurelio 4" /></div>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="slide('track-1', -1)">&#8592;</button>
-        <button class="slider-btn next" onclick="slide('track-1',  1)">&#8594;</button>
+        <button class="slider-btn prev" onclick="slide('track-1', -1)"><span class="arrow-icon"></span></button>
+        <button class="slider-btn next" onclick="slide('track-1',  1)"><span class="arrow-icon"></span></button>
       </div>
     </div>
 
@@ -292,8 +318,8 @@
             <div class="img-wrap"><img src="images/zwangerschap9WM.jpg" alt="Zwangerschapsfoto5" /></div>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="slide('track-2', -1)">&#8592;</button>
-        <button class="slider-btn next" onclick="slide('track-2',  1)">&#8594;</button>
+        <button class="slider-btn prev" onclick="slide('track-2', -1)"><span class="arrow-icon"></span></button>
+        <button class="slider-btn next" onclick="slide('track-2',  1)"><span class="arrow-icon"></span></button>
       </div>
     </div>
 
@@ -312,8 +338,8 @@
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_fc102fa794584bb38a1bd50d668cc067~mv2.jpg/v1/fill/w_600,h_860,fp_0.45_0.34,q_90,enc_avif,quality_auto/be7317_fc102fa794584bb38a1bd50d668cc067~mv2.jpg" alt="Sanne 4" /></div>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="slide('track-3', -1)">&#8592;</button>
-        <button class="slider-btn next" onclick="slide('track-3',  1)">&#8594;</button>
+        <button class="slider-btn prev" onclick="slide('track-3', -1)"><span class="arrow-icon"></span></button>
+        <button class="slider-btn next" onclick="slide('track-3',  1)"><span class="arrow-icon"></span></button>
       </div>
     </div>
 
@@ -332,8 +358,8 @@
             <div class="img-wrap"><img src="https://static.wixstatic.com/media/be7317_aaf8a2d068cd4e7f9cdb20146c29af81~mv2.jpg/v1/fill/w_600,h_860,fp_0.48_0.3,q_90,enc_avif,quality_auto/be7317_aaf8a2d068cd4e7f9cdb20146c29af81~mv2.jpg" alt="Julia 4" /></div>
           </div>
         </div>
-        <button class="slider-btn prev" onclick="slide('track-4', -1)">&#8592;</button>
-        <button class="slider-btn next" onclick="slide('track-4',  1)">&#8594;</button>
+        <button class="slider-btn prev" onclick="slide('track-4', -1)"><span class="arrow-icon"></span></button>
+        <button class="slider-btn next" onclick="slide('track-4',  1)"><span class="arrow-icon"></span></button>
       </div>
     </div>
 
