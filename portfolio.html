@@ -59,7 +59,7 @@
 .hero img {
   width: 100%;
   height: 100%;
-  object-fit: contain;  /* was: cover */
+  object-fit: cover;  
   object-position: center 50%;
   display: block;
 }
@@ -158,16 +158,11 @@
 
     .img-wrap:hover::after { opacity: 0; }
 
-    /* Liggende foto's: alleen bij klikken volledig/breed tonen, ongecropt */
     .img-wrap.is-landscape.is-expanded {
-      width: 860px !important;   /* !important: JS zet ook een inline width */
-      aspect-ratio: 3 / 2;
+      aspect-ratio: 5 / 7;
       z-index: 5;
-    }
+     }
 
-    .img-wrap.is-landscape.is-expanded img {
-      object-fit: contain;
-      background: #000;
     }
 
     /* ── PIJLEN ── */
@@ -229,8 +224,29 @@
     .img-wrap { -webkit-user-select: none; user-select: none; }
     body { -webkit-user-select: none; user-select: none; }
 
-    /* ── MOBILE ── */
-       
+    /* ── MOBILE Css ── */
+.img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  transition: opacity 0.4s ease;
+}
+
+/* Alleen apparaten met een muis krijgen het hover-effect */
+@media (hover: hover) {
+  .img-wrap:hover::after {
+    opacity: 0;
+  }
+}
+
+/* Op mobiel: geen donkere overlay */
+@media (max-width: 900px) {
+  .img-wrap::after {
+    background: transparent;
+  }
+}
+    
 @media (max-width: 850px) {
 
   nav {
@@ -381,7 +397,7 @@
   <script>
     const TRACK_IDS = ['track-1', 'track-2', 'track-3', 'track-4'];
     const GAP     = 7;
-   const VISIBLE = window.innerWidth <= 850 ? 1.8 : 3.5;
+   const VISIBLE = window.innerWidth <= 850 ? 2 : 3.5;
     
     const state = {};
     TRACK_IDS.forEach(id => state[id] = 0);
